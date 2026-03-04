@@ -6,11 +6,9 @@ use Illuminate\Http\Request;
 
 class Principal extends Controller
 {
-    function principal(){
-        echo 'Página Principal';
-    }
+    function home(){
+        return view('pagina-home');  /*view para visualizar a página php, view está carregando uma visualização*/
+        }
 
     
 }
-
-
