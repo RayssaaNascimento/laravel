@@ -56,70 +56,43 @@
 
 
 <!-- CURSOS -->
-<div class="container mt-5">
-
-  <div class="row g-4">
-
-    <!-- Desenvolvimento de Sistemas -->
-    <div class="col-md-6 col-lg-3" id="ds">
-      <div class="card h-100">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" class="card-img-top" alt="Programação">
-        <div class="card-body">
-          <h5 class="card-title">Desenvolvimento de Sistemas</h5>
-          <p class="card-text">
-            Aprenda programação, criação de sites, aplicativos e bancos de dados.
-            Ideal para quem quer trabalhar com tecnologia.
-          </p>
-          <a href="#" class="btn btn-primary">Saiba mais</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Administração -->
-    <div class="col-md-6 col-lg-3" id="adm">
-      <div class="card h-100">
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978" class="card-img-top" alt="Administração">
-        <div class="card-body">
-          <h5 class="card-title">Administração</h5>
-          <p class="card-text">
-            Estude gestão de empresas, marketing, finanças e liderança.
-            Prepare-se para atuar no mundo corporativo.
-          </p>
-          <a href="#" class="btn btn-primary">Saiba mais</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Meio Ambiente -->
-    <div class="col-md-6 col-lg-3" id="ma">
-      <div class="card h-100">
-        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" class="card-img-top" alt="Meio Ambiente">
-        <div class="card-body">
-          <h5 class="card-title">Meio Ambiente</h5>
-          <p class="card-text">
-            Aprenda sobre sustentabilidade, preservação ambiental e gestão de recursos naturais.
-          </p>
-          <a href="#" class="btn btn-primary">Saiba mais</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Farmácia -->
-    <div class="col-md-6 col-lg-3" id="farmacia">
-      <div class="card h-100">
-        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88" class="card-img-top" alt="Farmácia">
-        <div class="card-body">
-          <h5 class="card-title">Farmácia</h5>
-          <p class="card-text">
-            Conheça medicamentos, manipulação farmacêutica e cuidados com a saúde.
-          </p>
-          <a href="#" class="btn btn-primary">Saiba mais</a>
-        </div>
-      </div>
-    </div>
-
+<div id="carouselExampleCaptions" class="carousel slide" style="width: 50%; margin: auto;">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
-
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://i.pinimg.com/736x/38/53/40/3853404fba052caa69628ef7acf55d9d.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://i.pinimg.com/736x/70/c5/83/70c5838b89ec5a1929a4822035464aac.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://i.pinimg.com/1200x/21/ee/09/21ee094445611d0d25f95ad6999e538e.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
 
 
