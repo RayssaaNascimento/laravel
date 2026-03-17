@@ -3,6 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+.carousel-item img {
+  height: 439px; 
+  object-fit: cover;
+}
+</style>
   <title>Portal de Cursos</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -56,7 +62,7 @@
 
 
 <!-- CURSOS -->
-<div id="carouselExampleCaptions" class="carousel slide" style="width: 50%; margin: auto;">
+<div id="carouselExampleCaptions" class="carousel slide" style="width: 80%; margin: auto;">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -64,7 +70,7 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="https://i.pinimg.com/736x/38/53/40/3853404fba052caa69628ef7acf55d9d.jpg" class="d-block w-100" alt="...">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNkCHgHHuSde6SaPWLLlaMkGoHhGjMjpZsSw&s" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5>First slide label</h5>
         <p>Some representative placeholder content for the first slide.</p>
