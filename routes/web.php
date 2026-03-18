@@ -13,8 +13,20 @@ use App\Http\Middleware\LogAcessoMiddleware;
 |
 */
 
-Route::get('/', [App\Http\Controllers\Principal::class, 'principal']);
+Route::get('/', [App\Http\Controllers\Principal::class, 'principal'])->name('pagina-inicial');
+
+Route::prefix('publico')->group(function(){
+    Route::get('/contato/{nome}/{sobrenome}', [App\Http\Controllers\Principal::class, 'contatoNomeCompleto']);
+    Route::get('/contato/{nome}/{sobrenome}', [App\Http\Controllers\Principal::class, 'contatoNomeCompleto']);
+    Route::get('/contato/{nome}/{sobrenome}/{assunto}', [App\Http\Controllers\Principal::class, 'assunto']);
+    Route::get('/contato/{nome}/{sobrenome}/{assunto}/{email}/{telefone?}', [App\Http\Controllers\Principal::class, 'mensagem']); //? significa opcional
+});
+
+Route::get('/contato/{nome}', [App\Http\Controllers\Principal::class, 'contato']); //nao precisa de contato(nome) pois ele ja sabe
+//www.minhaaplicacao.com.br/nome/rayssa
 
 
-
-
+Route::fallback(function(){
+    echo "A rota acessada não existe.";
+    echo "<a href='" . route('pagina-inicial') . "'>Voltar</a>";
+}); //quando não encontrar a página, ao invés de aparecer erro444
