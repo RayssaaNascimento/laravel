@@ -12,17 +12,24 @@
 
 <style>
   body {
+    background-color: #dfc3ff;
   font-family: Arial;
 }
 img {
   max-width: 100%;
+}
+.navbar{
+    background-color:rgb(150, 63, 187);
+}
+footer{
+  background-color:rgb(150, 63, 187);;
 }
 </style>
 
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg">
   <div class="container">
     <a class="navbar-brand" href="index.html">Beth Cientista</a>
 
@@ -37,11 +44,11 @@ img {
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO
 <header class="bg-primary text-white text-center p-5">
   <h1>Plataforma Beth Cientista</h1>
   <p>Divulgação científica feita por jovens</p>
-</header>
+</header> -->
 
 <!-- OBJETIVO -->
 <section class="container my-5 text-center">
@@ -59,7 +66,7 @@ img {
     <!-- Desenvolvimento de Sistemas -->
     <div class="col-md-6 col-lg-3" id="ds">
       <div class="card h-100">
-        <img src="https://static.cdninstagram.com/rsrc.php/v5/yp/l/0,cross/nKvgHBgwSrGbgrNkRAHfEEWAcQkLAlwy9P_NAqbozHHDPvJg89IT9OsfgQe914iiBfONMKn3YhINqddoA3wRPOftU49pVNahkCkQvuWABIjhhRs97xFZK--hBruhBENOpKm_.css">
+        <img src="https://scontent-gru1-1.cdninstagram.com/v/t51.82787-15/656479884_18079422560079169_5213478945901942677_n.webp?_nc_cat=101&ig_cache_key=MzQ3OTQ2OTg4Mzg5NTc3NTc5MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTA4MC5zZHIuQzMifQ%3D%3D&_nc_ohc=YYi_oKZNW70Q7kNvwFwaRz9&_nc_oc=Adr4kBPE2Bju8EnG-9qXpUK2-FTA6KuC-2B7mEHt9QMfnHTnFQSmHiy9fQDYhzYy1ao&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-gru1-1.cdninstagram.com&_nc_gid=oRnrRPaiBGDNeB76FZ56rA&_nc_ss=7a32e&oh=00_Afz8PM_B_2JvcUpy49OYnOTR7EskH2k1uzdTHgbZ_0CKgQ&oe=69C8C9D8">
         <div class="card-body">
           <h5 class="card-title">Desenvolvimento de Sistemas</h5>
           <p class="card-text">
@@ -74,7 +81,7 @@ img {
     <!-- Administração -->
     <div class="col-md-6 col-lg-3" id="adm">
       <div class="card h-100">
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978" class="card-img-top" alt="Administração">
+        <img src="https://scontent-gru2-1.cdninstagram.com/v/t51.82787-15/641290553_18069016970286275_6727285818343248772_n.webp?_nc_cat=109&ig_cache_key=MzQ3OTQ2OTg4MzgwMzQyOTM3Mw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTA4MC5zZHIuQzMifQ%3D%3D&_nc_ohc=jyHkYnNEfhsQ7kNvwGzbWjr&_nc_oc=AdqUT8WqakI1dBEQW1aVntTZPNKUZatOqRWZBZx11ETZlDwwxgeyCQqRJbl4-56FuaQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-gru2-1.cdninstagram.com&_nc_gid=oRnrRPaiBGDNeB76FZ56rA&_nc_ss=7a32e&oh=00_Afz9Z3_mpN0Yd3roEZK8XPhwfF3ETLUtRDT3Q_SRjJcwrA&oe=69C89EC8" class="card-img-top" alt="Administração">
         <div class="card-body">
           <h5 class="card-title">Administração</h5>
           <p class="card-text">
@@ -89,7 +96,7 @@ img {
     <!-- Meio Ambiente -->
     <div class="col-md-6 col-lg-3" id="ma">
       <div class="card h-100">
-        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" class="card-img-top" alt="Meio Ambiente">
+        <img src="https://scontent-gru2-2.cdninstagram.com/v/t51.29350-15/462938135_1290503401940702_3288637433269926282_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=102&ig_cache_key=MzQ3OTQ2OTg4Mzg4NzQ1MDI1OQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTA4MC5zZHIuZGVmYXVsdF9pbWFnZS5DMyJ9&_nc_ohc=Vdpkt0T60iAQ7kNvwHVWZQv&_nc_oc=Adr2MZdAmxvCHjsI4oQRcA2YBewF7fNrs04YlhXBNO5qpsYTGLe_YXdQZUWipvNjJMQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-gru2-2.cdninstagram.com&_nc_gid=oRnrRPaiBGDNeB76FZ56rA&_nc_ss=7a32e&oh=00_AfytNR3z9fMKwhB23rMViNfO9PT3rdmjAIlm5KXeD4t0WQ&oe=69C8A46A" class="card-img-top" alt="Meio Ambiente">
         <div class="card-body">
           <h5 class="card-title">Meio Ambiente</h5>
           <p class="card-text">
@@ -103,7 +110,7 @@ img {
     <!-- Farmácia -->
     <div class="col-md-6 col-lg-3" id="farmacia">
       <div class="card h-100">
-        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88" class="card-img-top" alt="Farmácia">
+        <img src="https://scontent-gru1-2.cdninstagram.com/v/t51.82787-15/656284772_18090018536157734_1922849885316014330_n.webp?_nc_cat=108&ig_cache_key=MzQ3OTQ2OTg4Mzg5NTgwNjQ5MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTA4MC5zZHIuQzMifQ%3D%3D&_nc_ohc=DtM6_xShwu0Q7kNvwHHz057&_nc_oc=AdrEPBlZWPB6Y3Y4-Q116iakXczbmySAPp5Z09Nb7IGeVA6nGIPlPD7qA-7IFRxjYfM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-gru1-2.cdninstagram.com&_nc_gid=oRnrRPaiBGDNeB76FZ56rA&_nc_ss=7a32e&oh=00_AfyHucZN3ccXklaEx7z2XP2lQT9-e4TUNCTVHAUEC7z69A&oe=69C8C657" class="card-img-top" alt="Farmácia">
         <div class="card-body">
           <h5 class="card-title">Farmácia</h5>
           <p class="card-text">
@@ -136,7 +143,7 @@ img {
 
 </script>
 
-<footer class="bg-dark text-white text-center mt-5 p-4">
+<footer class="text-white text-center mt-5 p-4">
   <p>© 2026 Beth Cientista</p>
 </footer>
 
