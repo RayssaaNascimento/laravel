@@ -3,112 +3,142 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-.carousel-item img {
-  height: 439px; 
-  object-fit: cover;
-}
-</style>
-  <title>Portal de Cursos</title>
+  <link rel="shortcut icon" href="{{ ('iconbeth.ico') }}" type="image/x-icon">
+  <title>Beth Cientista</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="style.css">
 </head>
+
+<style>
+  body {
+  font-family: Arial;
+}
+img {
+  max-width: 100%;
+}
+</style>
 
 <body>
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="#">Portal de Cursos</a>
+    <a class="navbar-brand" href="index.html">Beth Cientista</a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="menu">
+    <div class="collapse navbar-collapse">
       <ul class="navbar-nav ms-auto">
-
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('pagina-principal') }}">Página Principal</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('pagina-sobre') }}">Sobre</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('pagina-cursos') }}">Cursos</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('pagina-contato') }}">Contato</a>
-        </li>
-
+        <li class="nav-item"><a class="nav-link" href="{{ route('pagina-principal') }}">Página Principal</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('pagina-conteudos') }}">Conteúdos</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('pagina-contato') }}">Contato</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('pagina-login') }}">Login</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
+<!-- HERO -->
+<header class="bg-primary text-white text-center p-5">
+  <h1>Plataforma Beth Cientista</h1>
+  <p>Divulgação científica feita por jovens</p>
+</header>
 
-<!-- BANNER -->
- <div class="lg-light p-5 text-center">
-    <div class="container">
-  <h1>Bem-vindo ao Portal de Cursos</h1>
-  <p class="lead">Escolha sua área de formação e comece sua jornada profissional.</p>
-  <a href="#cursos" class="btn btn-primary">Ver Cursos</a>
+<!-- OBJETIVO -->
+<section class="container my-5 text-center">
+  <h2>Objetivo</h2>
+  <p>
+    Plataforma educacional para organizar conteúdos científicos produzidos por estudantes,
+    promovendo inclusão e protagonismo.
+  </p>
+</section>
+
+<div class="container mt-5">
+
+  <div class="row g-4">
+
+    <!-- Desenvolvimento de Sistemas -->
+    <div class="col-md-6 col-lg-3" id="ds">
+      <div class="card h-100">
+        <img src="https://static.cdninstagram.com/rsrc.php/v5/yp/l/0,cross/nKvgHBgwSrGbgrNkRAHfEEWAcQkLAlwy9P_NAqbozHHDPvJg89IT9OsfgQe914iiBfONMKn3YhINqddoA3wRPOftU49pVNahkCkQvuWABIjhhRs97xFZK--hBruhBENOpKm_.css">
+        <div class="card-body">
+          <h5 class="card-title">Desenvolvimento de Sistemas</h5>
+          <p class="card-text">
+            Aprenda programação, criação de sites, aplicativos e bancos de dados.
+            Ideal para quem quer trabalhar com tecnologia.
+          </p>
+          <a href="#" class="btn btn-primary">Saiba mais</a>
+        </div>
+      </div>
     </div>
- </div>
 
+    <!-- Administração -->
+    <div class="col-md-6 col-lg-3" id="adm">
+      <div class="card h-100">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978" class="card-img-top" alt="Administração">
+        <div class="card-body">
+          <h5 class="card-title">Administração</h5>
+          <p class="card-text">
+            Estude gestão de empresas, marketing, finanças e liderança.
+            Prepare-se para atuar no mundo corporativo.
+          </p>
+          <a href="#" class="btn btn-primary">Saiba mais</a>
+        </div>
+      </div>
+    </div>
 
-<!-- CURSOS -->
-<div id="carouselExampleCaptions" class="carousel slide" style="width: 80%; margin: auto;">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <!-- Meio Ambiente -->
+    <div class="col-md-6 col-lg-3" id="ma">
+      <div class="card h-100">
+        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" class="card-img-top" alt="Meio Ambiente">
+        <div class="card-body">
+          <h5 class="card-title">Meio Ambiente</h5>
+          <p class="card-text">
+            Aprenda sobre sustentabilidade, preservação ambiental e gestão de recursos naturais.
+          </p>
+          <a href="#" class="btn btn-primary">Saiba mais</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Farmácia -->
+    <div class="col-md-6 col-lg-3" id="farmacia">
+      <div class="card h-100">
+        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88" class="card-img-top" alt="Farmácia">
+        <div class="card-body">
+          <h5 class="card-title">Farmácia</h5>
+          <p class="card-text">
+            Conheça medicamentos, manipulação farmacêutica e cuidados com a saúde.
+          </p>
+          <a href="#" class="btn btn-primary">Saiba mais</a>
+        </div>
+      </div>
+    </div>
+
   </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNkCHgHHuSde6SaPWLLlaMkGoHhGjMjpZsSw&s" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="https://i.pinimg.com/736x/70/c5/83/70c5838b89ec5a1929a4822035464aac.jpg" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Some representative placeholder content for the second slide.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="https://i.pinimg.com/1200x/21/ee/09/21ee094445611d0d25f95ad6999e538e.jpg" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Some representative placeholder content for the third slide.</p>
-      </div>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+
 </div>
 
 
-<!-- RODAPÉ -->
-<footer class="bg-dark text-light text-center mt-5 p-4">
-  <p>© 2026 Portal de Cursos - Todos os direitos reservados</p>
+<script>
+  function filtrar(categoria) {
+  let itens = document.querySelectorAll(".item");
+
+  itens.forEach(item => {
+    if (categoria === "todos") {
+      item.style.display = "block";
+    } else if (item.classList.contains(categoria)) {
+      item.style.display = "block";
+    } else {
+      item.style.display = "none";
+    }
+  });
+}
+
+</script>
+
+<footer class="bg-dark text-white text-center mt-5 p-4">
+  <p>© 2026 Beth Cientista</p>
 </footer>
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

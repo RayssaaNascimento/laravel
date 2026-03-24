@@ -10,16 +10,16 @@ class Principal extends Controller
         return view('pagina-principal');
     }
 
-    function sobre(){
-        return view('pagina-sobre');
-    }
-
-    function cursos(){
-        return view('pagina-cursos');
-    }
-
     function contato(){
         return view('pagina-contato');
+    }
+
+    function conteudos(){
+        return view('pagina-conteudos');
+    }
+
+    function login(){
+        return view('pagina-login');
     }
 
     
