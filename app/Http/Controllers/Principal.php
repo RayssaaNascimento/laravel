@@ -10,6 +10,17 @@ class Principal extends Controller
         echo 'Página Principal';
     }
 
+public function login(Request $request)
+{
+    $credenciais = $request->only('email', 'password');
+
+    if (Auth::attempt($credenciais)) {
+        return redirect()->route('dashboard');
+    }
+
+    return back()->with('error', 'Email ou senha inválidos');
+}
+
     
 }
 

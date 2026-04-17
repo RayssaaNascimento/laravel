@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\LogAcessoMiddleware;
+use App\Http\Controllers\Login;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +15,13 @@ use App\Http\Middleware\LogAcessoMiddleware;
 */
 
 Route::get('/', [App\Http\Controllers\Principal::class, 'principal']);
+//Route::get('/login', [App\Http\Controllers\Login::class, 'login']);
+
+Route::post('/login', [App\Http\Controllers\Login::class, 'login'])->name('login');
+Route::get('/login', function () {
+    return view('authlogin');
+})->name('login.form');
+Route::get('/register', fn() => view('auth.register'))->name('register.form');
 
 
 
