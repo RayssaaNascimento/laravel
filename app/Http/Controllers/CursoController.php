@@ -4,20 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AlunoController extends Controller
+class CursoController extends Controller
 {
     function index(){ 
-        return view('aluno.index');
+        return view('curso.index');
     }
 
     function add(Request $dados) { 
-        $aluno = new \App\Models\AlunoModel();
-        $aluno::create($dados->all());
+        $curso = new \App\Models\CursoModel();
+        $curso::create($dados->all());
 
 				//RECUPERANDO TODOS ALUNOS DO BANCO E ENVIANDO PARA A VIEW
 				
-        $alunos = new \App\Models\AlunoModel();
+        $cursos = new \App\Models\CursoModel();
 
-        return view('aluno.index', ['success'=>'Cadastrado!', 'alunos'=>$alunos::all()]);
+        return view('curso.index', ['success'=>'Cadastrado!', 'cursos'=>$cursos::all()]);
     }
 }
