@@ -20,4 +20,12 @@ class ComponenteController extends Controller
 
         return view('componente.index', ['success'=>'Cadastrado!', 'componentes'=>$componentes::all()]);
     }
+
+    function remove(string $id) {
+        $componente = new \App\Models\ComponenteModel();
+        $componente::destroy($id);
+
+        return view('$componente.index', ['success'=>'Removido!', 'componentes'=>$componentes::all()]);
+
+    }
 }

@@ -23,5 +23,29 @@
                 <h3>{{ $componente->nome }}, {{ $componente->hora_inicio }}, {{ $componente->hora_fim }}</h3>
             @endforeach
     @endisset
+
+    <table border="1">
+        <tr>
+            <td>Nome do Aluno</td>
+            <td colspan="2">Ações</td>
+        </tr>
+        @isset($componentes)
+                @foreach($componentes as $componente)
+                    <tr>
+                        <td>
+                        <form action="{{ route('componente.remove', ['id' => $componente->id]) }}" method="GET">
+                                <button type="submit">Remover</button>
+                            </form>
+                        </td>
+                        <td>
+                            <button type="submit">Remover</button>
+                        </td>
+                        <td>
+                            <button type="submit">Atualizar</button>
+                        </td>
+                    </tr>
+                @endforeach
+        @endisset
+    </table>
 </div>
 

@@ -24,5 +24,29 @@
                 <h3>{{ $professor->nome }}, {{ $professor->email }}, {{ $professor->telefone }}</h3>
             @endforeach
     @endisset
+
+    <table border="1">
+        <tr>
+            <td>Nome do Aluno</td>
+            <td colspan="2">Ações</td>
+        </tr>
+        @isset($professores)
+                @foreach($professores as $professor)
+                    <tr>
+                        <td>
+                        <form action="{{ route('professor.remove', ['id' => $professor->id]) }}" method="GET">
+                                <button type="submit">Remover</button>
+                            </form>
+                        </td>
+                        <td>
+                            <button type="submit">Remover</button>
+                        </td>
+                        <td>
+                            <button type="submit">Atualizar</button>
+                        </td>
+                    </tr>
+                @endforeach
+        @endisset
+    </professores
 </div>
 
