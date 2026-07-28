@@ -215,7 +215,7 @@ select:focus{
 
 <div class="register-box">
     <div class="avatar">
-        <img src="https://imgur.com">
+    <img src="{{ asset('Beth.jpg') }}">
     </div>
 
     <h1 class="title">BETH CIENTISTA</h1>
@@ -238,8 +238,8 @@ select:focus{
         <div>
             <label>Tipo de Conta</label>
             <div class="access">
-                <button type="button" class="student">Aluno</button>
-                <button type="button" class="teacher">Professor</button>
+                <button type="button" class="alunoo">Aluno</button>
+                <button type="button" class="professor">Professor</button>
             </div>
         </div>
 
@@ -274,6 +274,7 @@ select:focus{
         </div>
 
         <button type="submit" class="register-btn">↗ Criar Conta</button>
+        <a href=""></a>
     </form>
 
     <div class="footer">

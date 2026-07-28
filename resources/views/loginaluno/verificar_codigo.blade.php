@@ -2,11 +2,8 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Beth Cientista</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <title>Verificar E-mail - Beth Cientista</title>
+  <link href="https://googleapis.com" rel="stylesheet">
 
   <style>
     *{
@@ -177,53 +174,21 @@
   </style>
 </head>
 <body>
+  <div class="box">
+    <h1>Confirme seu E-mail</h1>
+    <p>Enviamos um código de 6 dígitos para o e-mail informado.</p>
 
-  <div class="login-box">
-
-    <div class="avatar">
-    <img src="{{ asset('Beth.jpg') }}">
-    </div>
-
-    <h1>BETH CIENTISTA</h1>
-
-    <div class="subtitle">
-      Área exclusiva para clubistas e professores
-    </div>
-
-    <!-- Bloco para exibir erros de validação/autenticação -->
-    @if ($errors->any())
+    @if($errors->any())
         <div class="error-box">
-            @foreach ($errors->all() as $error)
-                <p>⚠️ {{ $error }}</p>
-            @endforeach
+            @foreach($errors->all() as $error) <p>⚠️ {{ $error }}</p> @endforeach
         </div>
     @endif
-    
-    <!-- FORMULÁRIO CORRIGIDO PARA REALIZAR AUTENTICAÇÃO -->
-    <form action="{{ route('loginaluno.autenticar') }}" method="POST">
-        @csrf 
 
-        <label for="tipo_conta">Tipo de Acesso</label>
-        <select name="tipo_conta" id="tipo_conta" required>
-            <option value="aluno">Aluno</option>
-            <option value="professor">Professor</option>
-        </select>
-
-        <label for="email">E-mail</label>
-        <input type="email" name="email" id="email" value="{{ old('email') }}" placeholder="seu.email@exemplo.com" required>
-    
-        <label for="senha">Senha</label>
-        <input type="password" name="senha" id="senha" placeholder="******" required>
-    
-        <button type="submit" class="login-btn">
-          ↗ Entrar
-        </button>
+    <form action="{{ route('loginaluno.confirmar_codigo') }}" method="POST">
+        @csrf
+        <input type="text" name="codigo_digitado" placeholder="000000" maxlength="6" required>
+        <button type="submit">Validar e Cadastrar</button>
     </form>
-    
-    <div class="demo">
-      <p>Esqueceu de criar conta? <a href="{{ route('loginaluno.cadastro') }}" style="color:#9333ea; text-decoration:none;">Cadastre-se</a></p>
-    </div>
   </div>
-
 </body>
 </html>

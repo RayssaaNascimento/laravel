@@ -18,14 +18,15 @@ use App\Http\Controllers\Principal;
 
 Route::get('/', [Principal::class, 'principal']);
 
-Route::prefix('/loginaluno')->group(function(){ // grupo de rotas de alunos
+Route::prefix('/loginaluno')->group(function(){
     
     // Telas (Views)
     Route::get('/index', [LoginAlunoController::class, 'index'])->name('loginaluno.index');
     Route::get('/cadastro', [LoginAlunoController::class, 'cadastro'])->name('loginaluno.cadastro');
+    Route::get('/alunologado', [LoginAlunoController::class, 'alunologado'])->name('loginaluno.alunologado');
     
-    // Ações de Login e Logout (Adicionadas aqui para fazer o sistema funcionar)
-    Route::post('/logar', [LoginAlunoController::class, 'logar'])->name('loginaluno.logar');
+    // Ações de Autenticação (Ajustado o nome da rota e apontando para o método logar)
+    Route::post('/login', [LoginAlunoController::class, 'logar'])->name('loginaluno.autenticar');
     Route::post('/logout', [LoginAlunoController::class, 'logout'])->name('loginaluno.logout');
 
     // Ações do CRUD
@@ -34,15 +35,19 @@ Route::prefix('/loginaluno')->group(function(){ // grupo de rotas de alunos
     Route::post('/atualizar', [LoginAlunoController::class, 'atualizar'])->name('loginaluno.atualizar');
     Route::get('/consultar', [LoginAlunoController::class, 'consultar'])->name('loginaluno.consultar');
 
-}); 
+    Route::get('/verificar-codigo', [LoginAlunoController::class, 'telaCodigo'])->name('loginaluno.verificar_codigo');
+    Route::post('/confirmar-codigo', [LoginAlunoController::class, 'confirmarCodigo'])->name('loginaluno.confirmar_codigo');
+
+});
+
 
 // Exemplo de página protegida: Só entra aqui o aluno que estiver logado e com a sessão salva
 Route::middleware(['auth:alunos'])->group(function () {
     
-    Route::get('/dashboard', function () {
+    Route::get('/alunologado', function () {
         // Exemplo de como pegar os dados do aluno guardado na sessão:
         $aluno = Auth::guard('alunos')->user();
         return "Bem-vindo, " . $aluno->nome . "! Você está na área logada.";
-    })->name('dashboard');
+    })->name('alunologado');
 
 });
