@@ -196,7 +196,7 @@
 
         const btnReenviar = document.getElementById('btnReenviar');
         const contadorTexto = document.getElementById('contador');
-        let tempoRestante = 20;
+        let tempoRestante = 60;
 
         function atualizarContador() {
             if (tempoRestante > 0) {

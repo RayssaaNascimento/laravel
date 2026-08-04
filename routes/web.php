@@ -24,6 +24,8 @@ Route::prefix('/loginaluno')->group(function(){
     Route::get('/index', [LoginAlunoController::class, 'index'])->name('loginaluno.index');
     Route::get('/cadastro', [LoginAlunoController::class, 'cadastro'])->name('loginaluno.cadastro');
     Route::get('/alunologado', [LoginAlunoController::class, 'alunologado'])->name('loginaluno.alunologado');
+    Route::post('/login-aluno/reenviar-codigo', [LoginAlunoController::class, 'reenviarCodigo'])
+    ->name('loginaluno.reenviar_codigo');
     
     // Ações de Autenticação (Ajustado o nome da rota e apontando para o método logar)
     Route::post('/login', [LoginAlunoController::class, 'logar'])->name('loginaluno.autenticar');
