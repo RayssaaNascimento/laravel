@@ -17,13 +17,16 @@ use App\Http\Controllers\Principal;
 */
 
 Route::get('/', [Principal::class, 'principal']);
+Route::get('/inicio', [App\Http\Controllers\Inicio::class, 'inicio'])->name('inicio');
+Route::get('/aluno', [App\Http\Controllers\Aluno::class, 'aluno'])->name('aluno');
+Route::get('/professor', [App\Http\Controllers\Professor::class, 'professor'])->name('professor');
 
 Route::prefix('/loginaluno')->group(function(){
     
     // Telas (Views)
     Route::get('/index', [LoginAlunoController::class, 'index'])->name('loginaluno.index');
     Route::get('/cadastro', [LoginAlunoController::class, 'cadastro'])->name('loginaluno.cadastro');
-    Route::get('/alunologado', [LoginAlunoController::class, 'alunologado'])->name('loginaluno.alunologado');
+    // Route::get('/alunologado', [LoginAlunoController::class, 'alunologado'])->name('loginaluno.alunologado');
     Route::post('/login-aluno/reenviar-codigo', [LoginAlunoController::class, 'reenviarCodigo'])
     ->name('loginaluno.reenviar_codigo');
     
@@ -46,10 +49,10 @@ Route::prefix('/loginaluno')->group(function(){
 // Exemplo de página protegida: Só entra aqui o aluno que estiver logado e com a sessão salva
 Route::middleware(['auth:alunos'])->group(function () {
     
-    Route::get('/alunologado', function () {
+    Route::get('/aluno', function () {
         // Exemplo de como pegar os dados do aluno guardado na sessão:
         $aluno = Auth::guard('alunos')->user();
         return "Bem-vindo, " . $aluno->nome . "! Você está na área logada.";
-    })->name('alunologado');
+    })->name('alunol');
 
 });

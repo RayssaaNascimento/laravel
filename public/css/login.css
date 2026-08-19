@@ -1,0 +1,1003 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    min-height: 100%;
+}
+
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        'Fredoka',
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   PÁGINA
+========================================================= */
+
+.login-page {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 32px 16px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4b087d 0%,
+            #bc10c0 50%,
+            #ff7a00 100%
+        );
+}
+
+
+/* =========================================================
+   TEXTURA GRANULADA
+========================================================= */
+
+.grain-texture {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    opacity: 0.50;
+
+    mix-blend-mode: overlay;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.15'/%3E%3C/svg%3E");
+
+}
+
+
+/* =========================================================
+   ESTRELAS
+========================================================= */
+
+.sparkles {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+}
+
+
+.sparkle {
+
+    position: absolute;
+
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    opacity: 0.65;
+
+    pointer-events: none;
+
+    /*
+     * O JavaScript altera top e left.
+     * A transição cria o movimento suave.
+     */
+
+    transition:
+        top 0.45s ease,
+        left 0.45s ease,
+        transform 0.45s ease,
+        opacity 0.25s ease;
+
+}
+
+
+.sparkle::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -3px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    opacity: 0.20;
+
+    filter: blur(4px);
+
+}
+
+
+/* =========================================================
+   POSIÇÕES INICIAIS DAS ESTRELAS
+========================================================= */
+
+.sparkle-1 {
+    top: 8%;
+    left: 12%;
+}
+
+.sparkle-2 {
+    top: 16%;
+    left: 78%;
+}
+
+.sparkle-3 {
+    top: 27%;
+    left: 91%;
+}
+
+.sparkle-4 {
+    top: 37%;
+    left: 6%;
+}
+
+.sparkle-5 {
+    top: 49%;
+    left: 95%;
+}
+
+.sparkle-6 {
+    top: 62%;
+    left: 10%;
+}
+
+.sparkle-7 {
+    top: 74%;
+    left: 88%;
+}
+
+.sparkle-8 {
+    top: 84%;
+    left: 20%;
+}
+
+.sparkle-9 {
+    top: 91%;
+    left: 72%;
+}
+
+.sparkle-10 {
+    top: 22%;
+    left: 34%;
+}
+
+.sparkle-11 {
+    top: 70%;
+    left: 42%;
+}
+
+.sparkle-12 {
+    top: 13%;
+    left: 55%;
+}
+
+.sparkle-13 {
+    top: 42%;
+    left: 84%;
+}
+
+.sparkle-14 {
+    top: 81%;
+    left: 55%;
+}
+
+.sparkle-15 {
+    top: 55%;
+    left: 24%;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.login-card-wrapper {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: 100%;
+
+    max-width: 448px;
+
+}
+
+
+/* =========================================================
+   GLOW
+========================================================= */
+
+.login-glow {
+
+    position: absolute;
+
+    inset: -2px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #bc10c0,
+            #ff9a3d
+        );
+
+    filter: blur(20px);
+
+    opacity: 0.30;
+
+    z-index: -1;
+
+    transition:
+        opacity 0.3s ease;
+
+}
+
+
+.login-card-wrapper:hover
+.login-glow {
+
+    opacity: 0.50;
+
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.login-card {
+
+    position: relative;
+
+    width: 100%;
+
+    padding: 32px;
+
+    border-radius: 24px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.95
+        );
+
+    backdrop-filter: blur(10px);
+
+    border:
+        2px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.20
+        );
+
+    box-shadow:
+        0 25px 60px
+        rgba(
+            0,
+            0,
+            0,
+            0.25
+        );
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.login-card:hover {
+
+    transform: scale(1.015);
+
+    box-shadow:
+        0 30px 70px
+        rgba(
+            0,
+            0,
+            0,
+            0.30
+        );
+
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.login-header {
+
+    text-align: center;
+
+    margin-bottom: 28px;
+
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.login-logo {
+
+    width: 96px;
+
+    height: 96px;
+
+    padding: 8px;
+
+    margin:
+        0
+        auto
+        16px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 15px 35px
+        rgba(
+            0,
+            0,
+            0,
+            0.22
+        );
+
+}
+
+
+.login-logo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.login-header h1 {
+
+    color: #111827;
+
+    font-family:
+        'Luckiest Guy',
+        cursive;
+
+    font-size: 40px;
+
+    line-height: 1.15;
+
+    letter-spacing: -0.02em;
+
+    text-shadow:
+        0 3px 5px
+        rgba(
+            0,
+            0,
+            0,
+            0.10
+        );
+
+}
+
+
+/* =========================================================
+   DESCRIÇÃO
+========================================================= */
+
+.login-description {
+
+    margin-top: 8px;
+
+    color: #4b5563;
+
+    font-size: 20px;
+
+    line-height: 1.35;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+========================================================= */
+
+.login-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+}
+
+
+/* =========================================================
+   GRUPOS
+========================================================= */
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+
+.form-group > label {
+
+    color: #111827;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   TIPO DE ACESSO
+========================================================= */
+
+.access-type {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+
+}
+
+
+.access-option {
+
+    position: relative;
+
+    min-height: 46px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        2px solid
+        #d1d5db;
+
+    border-radius: 999px;
+
+    background: #ffffff;
+
+    color: #374151;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.access-option:hover {
+
+    transform: scale(1.03);
+
+    background: #f3f4f6;
+
+}
+
+
+.access-option.selected {
+
+    color: #ffffff;
+
+    border-color: #a855f7;
+
+    background: #a855f7;
+
+    box-shadow:
+        0 8px 20px
+        rgba(
+            168,
+            85,
+            247,
+            0.25
+        );
+
+}
+
+
+.access-option input {
+
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.form-group input {
+
+    width: 100%;
+
+    height: 52px;
+
+    padding:
+        0
+        16px;
+
+    border:
+        2px solid
+        #d1d5db;
+
+    border-radius: 12px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #111827;
+
+    font-family:
+        'Fredoka',
+        sans-serif;
+
+    font-size: 18px;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.form-group input::placeholder {
+
+    color: #9ca3af;
+
+}
+
+
+.form-group input:hover {
+
+    transform: scale(1.01);
+
+}
+
+
+.form-group input:focus {
+
+    border-color: #a855f7;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(
+            168,
+            85,
+            247,
+            0.12
+        );
+
+}
+
+
+/* =========================================================
+   SENHA
+========================================================= */
+
+.password-wrapper {
+
+    position: relative;
+
+}
+
+
+.password-wrapper input {
+
+    padding-right: 54px;
+
+}
+
+
+.password-toggle {
+
+    position: absolute;
+
+    top: 50%;
+
+    right: 14px;
+
+    width: 34px;
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transform: translateY(-50%);
+
+    border: none;
+
+    background: transparent;
+
+    color: #6b7280;
+
+    cursor: pointer;
+
+    border-radius: 8px;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease;
+
+}
+
+
+.password-toggle:hover {
+
+    color: #a855f7;
+
+    background: #f3f4f6;
+
+}
+
+
+.password-toggle svg {
+
+    width: 20px;
+
+    height: 20px;
+
+}
+
+
+/* =========================================================
+   ERRO
+========================================================= */
+
+.form-error {
+
+    color: #dc2626;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   BOTÃO ENTRAR
+========================================================= */
+
+.login-button {
+
+    width: 100%;
+
+    min-height: 54px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    border: none;
+
+    border-radius: 999px;
+
+    background: #f97316;
+
+    color: #ffffff;
+
+    font-family:
+        'Fredoka',
+        sans-serif;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 25px
+        rgba(
+            249,
+            115,
+            22,
+            0.30
+        );
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.login-button:hover {
+
+    transform: scale(1.03);
+
+    background: #ea580c;
+
+    box-shadow:
+        0 16px 30px
+        rgba(
+            249,
+            115,
+            22,
+            0.38
+        );
+
+}
+
+
+.login-button:active {
+
+    transform: scale(0.97);
+
+}
+
+
+.login-button svg {
+
+    width: 20px;
+
+    height: 20px;
+
+}
+
+
+/* =========================================================
+   DEMO
+========================================================= */
+
+.demo-box {
+
+    padding: 16px;
+
+    border:
+        2px solid
+        #fed7aa;
+
+    border-radius: 12px;
+
+    background: #fff7ed;
+
+    text-align: center;
+
+}
+
+
+.demo-title {
+
+    color: #111827;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    line-height: 1.4;
+
+}
+
+
+.demo-description {
+
+    margin-top: 4px;
+
+    color: #4b5563;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    line-height: 1.45;
+
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 600px) {
+
+
+    .login-page {
+
+        padding:
+            24px
+            16px;
+
+    }
+
+
+    .login-card {
+
+        padding:
+            26px
+            20px;
+
+        border-radius: 22px;
+
+    }
+
+
+    .login-logo {
+
+        width: 84px;
+
+        height: 84px;
+
+    }
+
+
+    .login-header h1 {
+
+        font-size: 34px;
+
+    }
+
+
+    .login-description {
+
+        font-size: 17px;
+
+    }
+
+
+    .form-group > label {
+
+        font-size: 16px;
+
+    }
+
+
+    .form-group input {
+
+        font-size: 16px;
+
+    }
+
+
+    .demo-description {
+
+        font-size: 13px;
+
+    }
+
+}
+
+
+@media (max-width: 380px) {
+
+
+    .login-card {
+
+        padding:
+            22px
+            16px;
+
+    }
+
+
+    .login-header h1 {
+
+        font-size: 30px;
+
+    }
+
+
+    .login-description {
+
+        font-size: 15px;
+
+    }
+
+
+    .access-option {
+
+        font-size: 14px;
+
+    }
+
+}
