@@ -99,7 +99,7 @@ class LoginAlunoController extends Controller
             Auth::guard('alunos')->login($aluno, true);
 
             // Redireciona para a página interna/logada do aluno
-            return redirect()->route('loginaluno.alunologado')->with('success', 'E-mail verificado com sucesso! Bem-vindo(a).');
+            return redirect()->route('loginaluno.alunologado');
         }
 
         // ---- CÓDIGO ERRADO ----

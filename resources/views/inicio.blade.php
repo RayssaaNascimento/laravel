@@ -52,7 +52,7 @@
             {{-- Navegação --}}
             <nav class="main-nav">
 
-                <a href="{{ url('/') }}" class="nav-link active">
+                <a href="{{ url('/inicio') }}" class="nav-link active">
                     Início
                 </a>
 
