@@ -8,8 +8,6 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-
-    
 <style>
         /* =========================
            CONFIGURAÇÕES GERAIS
@@ -334,28 +332,29 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        const selectNivel = document.getElementById("nivel");
-        const campoArea = document.getElementById("campo-area");
-        const selectArea = document.getElementById("select-area");
-    
-        function controlarVisibilidade() {
-            if (selectNivel.value === "Aluno Clubista") {
-                campoArea.style.display = "block";
-                selectArea.setAttribute("required", "required"); // Torna obrigatório se aparecer
-            } else {
-                campoArea.style.display = "none";
-                selectArea.removeAttribute("required"); // Tira a obrigação se sumir
-                selectArea.value = ""; // Limpa a seleção anterior
-            }
+    const selectNivel = document.getElementById("nivel");
+    const campoArea = document.getElementById("campo-area");
+    const selectArea = document.getElementById("select-area");
+
+    function controlarVisibilidade() {
+        if (selectNivel.value === "Aluno Clubista") {
+            campoArea.style.display = "block";
+            selectArea.setAttribute("required", "required"); // Torna obrigatório se aparecer
+        } else {
+            campoArea.style.display = "none";
+            selectArea.removeAttribute("required"); // Tira a obrigação se sumir
+            selectArea.value = ""; // Limpa a seleção anterior
         }
-    
-        // Executa quando o usuário muda a opção na caixinha de Nível
-        selectNivel.addEventListener("change", controlarVisibilidade);
-    
-        // Executa assim que a página carrega (ajuda se o Laravel voltar com erro e manter os campos preenchidos)
-        controlarVisibilidade();
-    });
+    }
+
+    // Executa quando o usuário muda a opção na caixinha de Nível
+    selectNivel.addEventListener("change", controlarVisibilidade);
+
+    // Executa assim que a página carrega (ajuda se o Laravel voltar com erro e manter os campos preenchidos)
+    controlarVisibilidade();
+});
 </script>
+
 
 
 

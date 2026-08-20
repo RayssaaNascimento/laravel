@@ -33,7 +33,8 @@
         <div class="header-container">
 
             {{-- Logo --}}
-            <a href="{{ url('/') }}" class="brand">
+            
+                
 
                 <div class="brand-logo">
                     <img
@@ -211,7 +212,7 @@
                     <div class="mascot-glow mascot-glow-two"></div>
 
                     <img
-                        src="{{ asset('images/beth-mascote.png') }}"
+                        src="{{ asset('Bethh.png') }}"
                         alt="Beth Cientista"
                     >
 

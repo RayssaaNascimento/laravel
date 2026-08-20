@@ -9,221 +9,422 @@
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family: 'Baloo 2', cursive;
-    }
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-    body{
-      height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      background: linear-gradient(180deg,#8a00b8,#d61bbd,#ff6b2c);
-      overflow:hidden;
-      position:relative;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
 
-    /* bolinhas */
-    body::before,
-    body::after{
-      content:'';
-      position:absolute;
-      width:8px;
-      height:8px;
-      background:white;
-      border-radius:50%;
-      opacity:0.6;
-    }
+body{
 
-    body::before{
-      top:15%;
-      left:20%;
-    }
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-    body::after{
-      bottom:10%;
-      right:18%;
-    }
+    min-height:100vh;
 
-    .login-box{
-      width:400px;
-      padding:35px;
-      border-radius:30px;
-      background: linear-gradient(90deg,#efd4f3,#f7dccf);
-      box-shadow:0 10px 30px rgba(0,0,0,0.25);
-    }
+    background:linear-gradient(180deg,#6f00a8 0%,#b316d1 55%,#ef6b72 100%);
 
-    .avatar{
-      width:90px;
-      height:90px;
-      border-radius:50%;
-      overflow:hidden;
-      margin:auto;
-      border:4px solid white;
-      box-shadow:0 5px 15px rgba(0,0,0,0.2);
-    }
+    overflow:hidden;
+    position:relative;
 
-    .avatar img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
+}
 
-    h1{
-      text-align:center;
-      margin-top:15px;
-      font-size:42px;
-      color:#111827;
-      font-weight:800;
-    }
+/*==========================
+BOLINHAS DO FUNDO
+==========================*/
 
-    .subtitle{
-      text-align:center;
-      color:#4b5563;
-      font-size:22px;
-      font-weight:700;
-      margin-top:5px;
-      margin-bottom:25px;
-    }
+body::before,
+body::after{
 
-    label{
-      font-size:28px;
-      font-weight:700;
-      color:#111827;
-      display:block;
-      margin-bottom:5px;
-      margin-top:10px;
-    }
+    content:"";
 
-    input, select{
-      width:100%;
-      padding:14px;
-      border:none;
-      border-radius:15px;
-      background:#ececec;
-      margin-bottom:20px;
-      font-size:16px;
-      outline:none;
-    }
+    position:absolute;
 
-    input:focus, select:focus{
-      border:2px solid #a855f7;
-    }
+    width:10px;
+    height:10px;
 
-    .login-btn{
-      width:100%;
-      padding:13px;
-      border:none;
-      border-radius:30px;
-      background:#ff6b00;
-      color:white;
-      font-size:26px;
-      font-weight:700;
-      cursor:pointer;
-      transition:0.3s;
-      box-shadow:0 5px 15px rgba(255,107,0,0.4);
-      margin-top:10px;
-    }
+    background:white;
 
-    .login-btn:hover{
-      transform:scale(1.03);
-    }
+    border-radius:50%;
 
-    /* ESTILO DA CAIXA DE ERRO */
-    .error-box {
-      background-color: #fee2e2;
-      border: 1px solid #fca5a5;
-      color: #991b1b;
-      padding: 15px;
-      border-radius: 15px;
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
+    opacity:.7;
 
-    .error-box p {
-      margin: 5px 0;
-    }
+}
 
-    .demo{
-      margin-top:25px;
-      background:#fff5ea;
-      border:2px solid #ffd7aa;
-      padding:18px;
-      border-radius:20px;
-      text-align:center;
-      font-weight:700;
-      color:#374151;
-    }
+body::before{
 
-    .demo p{
-      font-size:17px;
-    }
+    top:12%;
+    left:15%;
 
-    @media(max-width:500px){
-      .login-box{
-        width:90%;
-        padding:25px;
-      }
-      h1{
-        font-size:32px;
-      }
-      .subtitle{
-        font-size:18px;
-      }
-    }
+    box-shadow:
+    200px 80px white,
+    500px 150px white,
+    800px 50px white,
+    950px 320px white,
+    120px 500px white,
+    650px 620px white,
+    980px 700px white;
+
+}
+
+body::after{
+
+    bottom:8%;
+    right:12%;
+
+}
+
+/*==========================
+CARD LOGIN
+==========================*/
+
+.login-box{
+
+    width:430px;
+
+    background:linear-gradient(180deg,#f8d7ff,#ffe2d2);
+
+    padding:35px;
+
+    border-radius:30px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+}
+
+/*==========================
+AVATAR
+==========================*/
+
+.avatar{
+
+    width:110px;
+    height:110px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    border:5px solid white;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.20);
+
+}
+
+.avatar img{
+
+   width:100%;
+    height:100%;
+
+    object-fit:cover; 
+
+}
+
+/*==========================
+TEXTOS
+==========================*/
+
+h1{
+
+    text-align:center;
+
+    margin-top:20px;
+
+    font-size:40px;
+
+    color:#1e1e1e;
+
+    font-weight:800;
+
+}
+
+.subtitle{
+
+    text-align:center;
+
+    color:#555;
+
+    font-size:18px;
+
+    margin:12px 0 30px;
+
+}
+
+label{
+
+    display:block;
+
+    color:#333;
+
+    font-weight:700;
+
+    margin-bottom:8px;
+
+    font-size:18px;
+
+}
+
+/*==========================
+TIPO DE ACESSO
+==========================*/
+
+.access{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-bottom:25px;
+
+}
+
+.access button{
+
+    flex:1;
+
+    border:none;
+
+    padding:12px;
+
+    border-radius:25px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.student{
+
+    background:#8b2cf5;
+
+    color:white;
+
+}
+
+.teacher{
+
+    background:#ececec;
+
+    color:#333;
+
+}
+
+.access button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/*==========================
+INPUTS
+==========================*/
+
+input{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#f2f2f2;
+
+    margin-bottom:22px;
+
+    font-size:16px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+input:focus{
+
+    background:white;
+
+    box-shadow:0 0 0 2px #ff8b00;
+
+}
+
+/*==========================
+BOTÃO LOGIN
+==========================*/
+
+.login-btn{
+
+    width:100%;
+
+    border:none;
+
+    background:#ff7a00;
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:30px;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 8px 18px rgba(255,122,0,.35);
+
+}
+
+.login-btn:hover{
+
+    background:#ff9500;
+
+    transform:translateY(-3px);
+
+}
+
+/*==========================
+CAIXA DEMO
+==========================*/
+
+.demo{
+
+    margin-top:25px;
+
+    background:white;
+
+    border-left:6px solid #ff8b00;
+
+    padding:18px;
+
+    border-radius:15px;
+
+}
+
+.demo p{
+
+    color:#555;
+
+    font-size:15px;
+
+    line-height:26px;
+
+}
+
+/*==========================
+RESPONSIVO
+==========================*/
+
+@media(max-width:768px){
+
+.login-box{
+
+    width:92%;
+
+    padding:25px;
+
+}
+
+h1{
+
+    font-size:32px;
+
+}
+
+.subtitle{
+
+    font-size:16px;
+
+}
+
+.access{
+
+    flex-direction:column;
+
+}
+
+}
   </style>
 </head>
 <body>
 
-  <div class="login-box">
+<body>
 
-    <div class="avatar">
-    <img src="{{ asset('Beth.jpg') }}">
-    </div>
+    <div class="login-box">
 
-    <h1>BETH CIENTISTA</h1>
-
-    <div class="subtitle">
-      Área exclusiva para clubistas e professores
-    </div>
-
-    <!-- Bloco para exibir erros de validação/autenticação -->
-    @if ($errors->any())
-        <div class="error-box">
-            @foreach ($errors->all() as $error)
-                <p>⚠️ {{ $error }}</p>
-            @endforeach
+        <div class="avatar">
+            <img src="{{ asset('Beth.jpg') }}" alt="Beth Cientista">
         </div>
-    @endif
-    
-    <!-- FORMULÁRIO CORRIGIDO PARA REALIZAR AUTENTICAÇÃO -->
-    <form action="{{ route('loginaluno.autenticar') }}" method="POST">
-        @csrf 
 
-        <label for="tipo_conta">Tipo de Acesso</label>
-        <select name="tipo_conta" id="tipo_conta" required>
-            <option value="aluno">Aluno</option>
-            <option value="professor">Professor</option>
-        </select>
+        <h1>BETH CIENTISTA</h1>
 
-        <label for="email">E-mail</label>
-        <input type="email" name="email" id="email" value="{{ old('email') }}" placeholder="seu.email@exemplo.com" required>
-    
+        <div class="subtitle">
+            Área exclusiva para clubistas e professores
+        </div>
+
+        <label>Tipo de Acesso</label>
+
+        <div class="access">
+
+            <button
+                type="button"
+                class="student selected"
+                id="alunoBtn">
+                Aluno
+            </button>
+
+            <button
+                type="button"
+                class="teacher"
+                id="professorBtn">
+                Professor
+            </button>
+
+        </div>
+
+        <label for="email">Email</label>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="seu.email@exemplo.com"
+        >
+
         <label for="senha">Senha</label>
-        <input type="password" name="senha" id="senha" placeholder="******" required>
-    
-        <button type="submit" class="login-btn">
-          ↗ Entrar
-        </button>
-    </form>
-    
-    <div class="demo">
-      <p>Esqueceu de criar conta? <a href="{{ route('loginaluno.cadastro') }}" style="color:#9333ea; text-decoration:none;">Cadastre-se</a></p>
-    </div>
-  </div>
 
-</body>
+        <input
+            type="password"
+            id="senha"
+            placeholder="******"
+        >
+
+        <button
+            type="button"
+            class="login-btn"
+            id="entrarBtn">
+
+            ↗ Entrar
+
+        </button>
+
+
+    </div>
+
+
+
 </html>
