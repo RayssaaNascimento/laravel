@@ -190,8 +190,6 @@ RESPONSIVO
             <p>Escolha como deseja entrar:</p>
         </div>
 
-        <label>Selecione seu perfil</label>
-
         <!-- Botão para Aluno -->
         <a href="{{ route('cadastroaluno') }}" class="join-btn student-btn">
             Cadastrar como aluno ↗

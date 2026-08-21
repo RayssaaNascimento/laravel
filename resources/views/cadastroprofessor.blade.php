@@ -257,7 +257,7 @@
         @endif
 
         <!-- FORMULÁRIO -->
-        <form action="{{ route('loginprofessor.adicionar') }}" method="POST">
+        <form action="{{ asset('cadastroprofessor.adicionar') }}" method="POST">
             @csrf 
 
             <!-- NOME -->
@@ -290,7 +290,7 @@
         </form>
 
         <!-- LINK PARA VOLTAR / ENTRAR -->
-        <a href="{{ route('loginprofessor') }}" style="text-decoration: none;">
+        <a href="{{ asset('loginprofessor') }}" style="text-decoration: none;">
             <button type="button" class="btn-voltar">Já possui conta? Entrar</button>
         </a>
         

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\LoginAlunoModel; // Certifique-se de que o Model correto está mapeado (geralmente mapeia a tabela 'alunos')
+use App\Models\LoginProfessorModel; // Certifique-se de que o Model correto está mapeado (geralmente mapeia a tabela 'alunos')
 // Se o seu model da tabela de alunos for outro, troque a linha abaixo pelo model correto, ex: use App\Models\Aluno;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;

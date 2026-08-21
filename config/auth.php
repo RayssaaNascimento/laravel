@@ -42,7 +42,7 @@ return [
         ],
         'alunos' => [
         'driver' => 'session',
-        'provider' => 'alunos', // Aponta para o provider que criamos no passo 1
+        'provider' => 'alunos_provider', // Aponta para o provider que criamos no passo 1
     ],
     ],
     'guards' => [
@@ -52,7 +52,7 @@ return [
         ],
         'professores' => [
         'driver' => 'session',
-        'provider' => 'professores', // Aponta para o provider que criamos no passo 1
+        'provider' => 'professores_provider', // Aponta para o provider que criamos no passo 1
     ],
     ],
 
@@ -83,12 +83,12 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
-        'alunos' => [
+        'alunos_provider' => [
         'driver' => 'eloquent',
         'model' => App\Models\LoginAlunoModel::class, // Seu model de aluno
     ],
     ],
-        'professores' => [
+        'professores_provider' => [
         'driver' => 'eloquent',
         'model' => App\Models\LoginProfessorModel::class, // Seu model de aluno
     ],

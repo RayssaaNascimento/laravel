@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Cadastro - Beth Cientista</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beth Cientista - Cadastro</title>
+    <!-- Importando a fonte Poppins externa -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
         /* =========================
            CONFIGURAÇÕES GERAIS
         ========================= */
@@ -155,11 +156,6 @@
             color:#999;
         }
 
-        /* CONFIGURAÇÃO PARA ESCONDER A ÁREA CIENTÍFICA NO INÍCIO */
-        #campo-area {
-            display: none;
-        }
-
         /* =========================
            SELECT
         ========================= */
@@ -290,24 +286,11 @@
                 <input type="password" name="senha" placeholder="********" required>
             </div>
 
-            <!-- NÍVEL -->
-            <div class="campo">
-                <label for="nivel">Nível</label>
-                <select id="nivel" name="nivel" required>
-                    <option value="" disabled {{ old('nivel') == '' ? 'selected' : '' }}>Selecione seu nível</option>
-                    <option value="Aluno Clubista" {{ old('nivel') == 'Aluno Clubista' ? 'selected' : '' }}>
-                        Aluno Clubista
-                    </option>
-                    <option value="Professor" {{ old('nivel') == 'Professor' ? 'selected' : '' }}>
-                        Professor
-                    </option>
-                </select>
-            </div>
 
-            <!-- ÁREA CIENTÍFICA (COM ID PARA O SCRIPT CONTROLAR) -->
-            <div class="campo" id="campo-area">
+            <!-- ÁREA CIENTÍFICA -->
+            <div class="campo">
                 <label>Área Científica</label>
-                <select id="select-area" name="area_cientifica">
+                <select name="area_cientifica" required>
                     <option value="" disabled {{ old('area_cientifica') == '' ? 'selected' : '' }}>Selecione uma área</option>
                     <option value="Biologia" {{ old('area_cientifica') == 'Biologia' ? 'selected' : '' }}>Biologia</option>
                     <option value="Química" {{ old('area_cientifica') == 'Química' ? 'selected' : '' }}>Química</option>
@@ -323,40 +306,12 @@
         </form>
 
         <!-- LINK PARA VOLTAR / ENTRAR -->
-        <a href="{{ route('loginaluno.index') }}" style="text-decoration: none;">
+        <a href="{{ asset('loginaluno') }}" style="text-decoration: none;">
             <button type="button" class="btn-voltar">Já possui conta? Entrar</button>
         </a>
         
     </div>
 </div>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-    const selectNivel = document.getElementById("nivel");
-    const campoArea = document.getElementById("campo-area");
-    const selectArea = document.getElementById("select-area");
-
-    function controlarVisibilidade() {
-        if (selectNivel.value === "Aluno Clubista") {
-            campoArea.style.display = "block";
-            selectArea.setAttribute("required", "required"); // Torna obrigatório se aparecer
-        } else {
-            campoArea.style.display = "none";
-            selectArea.removeAttribute("required"); // Tira a obrigação se sumir
-            selectArea.value = ""; // Limpa a seleção anterior
-        }
-    }
-
-    // Executa quando o usuário muda a opção na caixinha de Nível
-    selectNivel.addEventListener("change", controlarVisibilidade);
-
-    // Executa assim que a página carrega (ajuda se o Laravel voltar com erro e manter os campos preenchidos)
-    controlarVisibilidade();
-});
-</script>
-
-
-
 
 </body>
 </html>

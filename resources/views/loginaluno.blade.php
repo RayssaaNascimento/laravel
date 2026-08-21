@@ -352,11 +352,6 @@ h1{
 
 }
 
-.access{
-
-    flex-direction:column;
-
-}
 
 }
   </style>
@@ -377,28 +372,9 @@ h1{
             Área exclusiva para clubistas e professores
         </div>
 
-        <label>Tipo de Acesso</label>
 
-        <div class="access">
-
-            <button
-                type="button"
-                class="student selected"
-                id="alunoBtn">
-                Aluno
-            </button>
-
-            <button
-                type="button"
-                class="teacher"
-                id="professorBtn">
-                Professor
-            </button>
-
-        </div>
-
-                <!-- FORMULÁRIO -->
-                <form action="{{ route('loginaluno.adicionar') }}" method="POST">
+        <!-- FORMULÁRIO -->
+        <form action="{{ asset('loginaluno.adicionar') }}" method="POST">
             @csrf 
 
         <label for="email">Email</label>

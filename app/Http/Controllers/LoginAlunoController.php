@@ -12,11 +12,11 @@ use App\Mail\CodigoVerificacaoMail;
 
 class LoginAlunoController extends Controller
 {
-    public function loginA() {
+    public function loginaluno() {
         return view('loginaluno');
     }
 
-    public function cadastroA() {
+    public function cadastroaluno() {
         return view('cadastroaluno');
     }
 
@@ -57,7 +57,7 @@ class LoginAlunoController extends Controller
     // 2. Exibe a tela para digitação do código
     public function telaCodigo() {
         if (!session()->has('cadastro_temporario')) {
-            return redirect()->route('cadastroaluno');
+            return redirect()->route('loginaluno');
         }
         return view('loginaluno.verificar_codigo');
     }
@@ -72,7 +72,7 @@ class LoginAlunoController extends Controller
         $dadosAluno = session('cadastro_temporario'); // CORRIGIDO: Buscando a chave certa da sessão
 
         if (!$dadosAluno) {
-            return redirect()->route('cadastroaluno')->withErrors(['error' => 'Sessão expirada. Tente o cadastro novamente.']);
+            return redirect()->route('loginaluno')->withErrors(['error' => 'Sessão expirada. Tente o cadastro novamente.']);
         }
 
         // Verifica se o código bate
