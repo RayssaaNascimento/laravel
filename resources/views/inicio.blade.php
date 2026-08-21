@@ -81,11 +81,11 @@
                     Menções Honrosas
                 </a>
 
-                <a href="{{ asset('loginaluno/cadastro') }}" class="btn-participe">
+                <a href="{{ asset('fp') }}" class="btn-participe">
                     Faça Parte
                 </a>
 
-                <a href="{{ asset('loginaluno/index') }}" class="btn-login">
+                <a href="{{ asset('entrar') }}" class="btn-login">
                     <i class="fa-solid fa-right-to-bracket"></i>
                     Entrar
                 </a>
@@ -110,11 +110,11 @@
 
             <div class="mobile-menu-buttons">
 
-                <a href="{{ url('/login') }}" class="btn-participe">
+                <a href="{{ asset('/fp') }}" class="btn-participe">
                     Faça Parte
                 </a>
 
-                <a href="{{ asset('loginaluno/index') }}" class="btn-login">
+                <a href="{{ asset('entrar') }}" class="btn-login">
                     <i class="fa-solid fa-right-to-bracket"></i>
                     Entrar
                 </a>

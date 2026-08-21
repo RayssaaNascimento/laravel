@@ -10,14 +10,14 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\CodigoVerificacaoMail;
 
-class LoginAlunoController extends Controller
+class LoginProfessorController extends Controller
 {
-    public function loginA() {
-        return view('loginaluno');
+    public function loginP() {
+        return view('loginprofessor');
     }
 
-    public function cadastroA() {
-        return view('cadastroaluno');
+    public function cadastroP() {
+        return view('cadastroprofessor');
     }
 
 
@@ -25,9 +25,9 @@ class LoginAlunoController extends Controller
     public function adicionar(Request $request) { 
         $request->validate([
             'nome'            => 'required|string|max:255',
-            'email'           => 'required|email|unique:alunos,email',
+            'email'           => 'required|email|unique:professores,email',
             'senha'           => 'required|min:6',
-            'area_cientifica' => 'required|string'
+            'code' => 'required|string'
         ], [
             'email.unique'    => 'Este e-mail já está cadastrado.',
             'senha.min'       => 'A senha deve ter pelo menos 6 caracteres.'
@@ -42,7 +42,7 @@ class LoginAlunoController extends Controller
                 'nome'            => $request->nome,
                 'email'           => $request->email,
                 'senha'           => Hash::make($request->senha),
-                'area_cientifica' => $request->area_cientifica,
+                'code' => $request->code,
             ],
             'codigo_verificacao' => $codigo
         ]);
@@ -51,15 +51,15 @@ class LoginAlunoController extends Controller
         Mail::to($request->email)->send(new CodigoVerificacaoMail($codigo));
 
         // Redireciona para a página onde ele deve digitar o código
-        return redirect()->route('loginaluno.verificar_codigo');
+        return redirect()->route('loginprofessor.verificar_codigo');
     }
 
     // 2. Exibe a tela para digitação do código
     public function telaCodigo() {
         if (!session()->has('cadastro_temporario')) {
-            return redirect()->route('cadastroaluno');
+            return redirect()->route('cadastroprofessor');
         }
-        return view('loginaluno.verificar_codigo');
+        return view('loginprofessor.verificar_codigo');
     }
 
     // 3. Valida o código e CRIA a conta definitiva salvando no banco
@@ -69,10 +69,10 @@ class LoginAlunoController extends Controller
         ]);
 
         $codigoCorreto = session('codigo_verificacao');
-        $dadosAluno = session('cadastro_temporario'); // CORRIGIDO: Buscando a chave certa da sessão
+        $dadosProfessoro = session('cadastro_temporario'); // CORRIGIDO: Buscando a chave certa da sessão
 
-        if (!$dadosAluno) {
-            return redirect()->route('cadastroaluno')->withErrors(['error' => 'Sessão expirada. Tente o cadastro novamente.']);
+        if (!$dadosProfessor) {
+            return redirect()->route('cadastroprofessor')->withErrors(['error' => 'Sessão expirada. Tente o cadastro novamente.']);
         }
 
         // Verifica se o código bate
@@ -82,21 +82,21 @@ class LoginAlunoController extends Controller
             
             // Grava o aluno definitivamente no banco usando seu Model
             // IMPORTANTE: Ajuste os campos abaixo de acordo com as colunas da sua tabela 'alunos'
-            $aluno = LoginAlunoModel::create([
-                'nome'            => $dadosAluno['nome'],
-                'email'           => $dadosAluno['email'],
-                'senha'           => $dadosAluno['senha'], // Já está com o Hash
-                'area_cientifica' => $dadosAluno['area_cientifica'],
+            $professor = LoginProfessorModel::create([
+                'nome'            => $dadosProfessor['nome'],
+                'email'           => $dadosProfessor['email'],
+                'senha'           => $dadosProfessor['senha'], // Já está com o Hash
+                'code' => $dadosProfessor['code'],
             ]);
             
             // Limpa as sessões temporárias
             session()->forget(['codigo_verificacao', 'cadastro_temporario']);
 
             // Faz o login automático do Aluno real recém-criado no Guard correto
-            Auth::guard('alunos')->login($aluno, true);
+            Auth::guard('professores')->login($professor, true);
 
             // Redireciona para a página interna/logada do aluno
-            return redirect()->route('aluno');
+            return redirect()->route('professor');
         }
 
         // ---- CÓDIGO ERRADO ----
@@ -107,8 +107,8 @@ class LoginAlunoController extends Controller
     public function reenviarCodigo(Request $request)
     {
         // CORRIGIDO: Recupera o e-mail de dentro da estrutura correta na sessão
-        $dadosAluno = session('cadastro_temporario');
-        $email = $dadosAluno['email'] ?? null; 
+        $dadosProfessor = session('cadastro_temporario');
+        $email = $dadosProfessor['email'] ?? null; 
 
         if (!$email) {
             return redirect()->back()->withErrors(['error' => 'Não encontramos seus dados de cadastro. Tente reiniciar o cadastro.']);
@@ -133,10 +133,10 @@ class LoginAlunoController extends Controller
     
 
     public function logout(Request $request) {
-        Auth::guard('alunos')->logout();
+        Auth::guard('professores')->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('loginaluno');
+        return redirect()->route('loginprofessor');
     }
 
     public function remover(Request $dados) {  }

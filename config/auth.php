@@ -45,6 +45,16 @@ return [
         'provider' => 'alunos', // Aponta para o provider que criamos no passo 1
     ],
     ],
+    'guards' => [
+        'web' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+        'professores' => [
+        'driver' => 'session',
+        'provider' => 'professores', // Aponta para o provider que criamos no passo 1
+    ],
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -77,6 +87,10 @@ return [
         'driver' => 'eloquent',
         'model' => App\Models\LoginAlunoModel::class, // Seu model de aluno
     ],
+    ],
+        'professores' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\LoginProfessorModel::class, // Seu model de aluno
     ],
 
     /*
