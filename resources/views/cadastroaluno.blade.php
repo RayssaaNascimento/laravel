@@ -301,12 +301,13 @@
             </div>
 
             <!-- BOTÃO CADASTRAR -->
-            <button type="submit" class="btn-cadastrar">↗ Criar Conta</button>
+             <a href="{{ route('aluno') }}"><button type="submit" class="btn-cadastrar">↗ Criar Conta</button></a>
+            
             
         </form>
 
         <!-- LINK PARA VOLTAR / ENTRAR -->
-        <a href="{{ asset('loginaluno') }}" style="text-decoration: none;">
+        <a href="{{ route('loginaluno') }}" style="text-decoration: none;">
             <button type="button" class="btn-voltar">Já possui conta? Entrar</button>
         </a>
         

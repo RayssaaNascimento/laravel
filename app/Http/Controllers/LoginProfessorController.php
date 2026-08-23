@@ -12,11 +12,11 @@ use App\Mail\CodigoVerificacaoMail;
 
 class LoginProfessorController extends Controller
 {
-    public function loginP() {
+    public function loginprofessor() {
         return view('loginprofessor');
     }
 
-    public function cadastroP() {
+    public function cadastroprofessor() {
         return view('cadastroprofessor');
     }
 
@@ -27,7 +27,7 @@ class LoginProfessorController extends Controller
             'nome'            => 'required|string|max:255',
             'email'           => 'required|email|unique:professores,email',
             'senha'           => 'required|min:6',
-            'code' => 'required|string'
+            'code'            => 'required|string'
         ], [
             'email.unique'    => 'Este e-mail já está cadastrado.',
             'senha.min'       => 'A senha deve ter pelo menos 6 caracteres.'
@@ -51,15 +51,15 @@ class LoginProfessorController extends Controller
         Mail::to($request->email)->send(new CodigoVerificacaoMail($codigo));
 
         // Redireciona para a página onde ele deve digitar o código
-        return redirect()->route('loginprofessor.verificar_codigo');
+        return redirect()->route('verificar_codigo');
     }
 
     // 2. Exibe a tela para digitação do código
     public function telaCodigo() {
         if (!session()->has('cadastro_temporario')) {
-            return redirect()->route('cadastroprofessor');
+            return redirect()->route('loginprofessor');
         }
-        return view('loginprofessor.verificar_codigo');
+        return view('verificar_codigo');
     }
 
     // 3. Valida o código e CRIA a conta definitiva salvando no banco
@@ -69,10 +69,10 @@ class LoginProfessorController extends Controller
         ]);
 
         $codigoCorreto = session('codigo_verificacao');
-        $dadosProfessoro = session('cadastro_temporario'); // CORRIGIDO: Buscando a chave certa da sessão
+        $dadosProfessor = session('cadastro_temporario'); // CORRIGIDO: Buscando a chave certa da sessão
 
         if (!$dadosProfessor) {
-            return redirect()->route('cadastroprofessor')->withErrors(['error' => 'Sessão expirada. Tente o cadastro novamente.']);
+            return redirect()->route('loginprofessor')->withErrors(['error' => 'Sessão expirada. Tente o cadastro novamente.']);
         }
 
         // Verifica se o código bate
@@ -131,6 +131,33 @@ class LoginProfessorController extends Controller
         }
     } // CORRIGIDO: Chave de fechamento reposicionada corretamente aqui
     
+// Processa o Login
+public function logar(Request $request) {
+    $credenciais = $request->validate([
+        'email' => 'required|email',
+        'senha' => 'required'
+    ]);
+
+    // CORRIGIDO: Mudamos a chave para 'password'. 
+    // O Laravel vai ler isso e comparar com o método getAuthPassword() que criamos no Model!
+    $tentativa = [
+        'email'    => $credenciais['email'],
+        'password' => $credenciais['senha'] // Mudar de 'senha' para 'password' aqui é obrigatório
+    ];
+
+    // Executa a tentativa de login guardando a sessão (true)
+    if (Auth::guard('professores')->attempt($tentativa, true)) {
+        $request->session()->regenerate();
+        
+        // Redireciona para a rota protegida do aluno (ajustado de /dashboard para /aluno)
+        return redirect()->route('professor'); 
+    }
+
+    // Se errar, volta com a mensagem de erro
+    return back()->withErrors(['email' => 'E-mail ou senha incorretos.'])->withInput();
+}
+
+
 
     public function logout(Request $request) {
         Auth::guard('professores')->logout();

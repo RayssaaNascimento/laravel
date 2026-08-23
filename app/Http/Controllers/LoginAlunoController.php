@@ -131,6 +131,33 @@ class LoginAlunoController extends Controller
         }
     } // CORRIGIDO: Chave de fechamento reposicionada corretamente aqui
     
+// Processa o Login
+public function logar(Request $request) {
+    $credenciais = $request->validate([
+        'email' => 'required|email',
+        'senha' => 'required'
+    ]);
+
+    // CORRIGIDO: Mudamos a chave para 'password'. 
+    // O Laravel vai ler isso e comparar com o método getAuthPassword() que criamos no Model!
+    $tentativa = [
+        'email'    => $credenciais['email'],
+        'password' => $credenciais['senha'] // Mudar de 'senha' para 'password' aqui é obrigatório
+    ];
+
+    // Executa a tentativa de login guardando a sessão (true)
+    if (Auth::guard('alunos')->attempt($tentativa, true)) {
+        $request->session()->regenerate();
+        
+        // Redireciona para a rota protegida do aluno (ajustado de /dashboard para /aluno)
+        return redirect()->route('aluno'); 
+    }
+
+    // Se errar, volta com a mensagem de erro
+    return back()->withErrors(['email' => 'E-mail ou senha incorretos.'])->withInput();
+}
+
+
 
     public function logout(Request $request) {
         Auth::guard('alunos')->logout();

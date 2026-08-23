@@ -257,7 +257,7 @@
         @endif
 
         <!-- FORMULÁRIO -->
-        <form action="{{ asset('cadastroprofessor.adicionar') }}" method="POST">
+        <form action="{{ route('adicionar') }}" method="POST">
             @csrf 
 
             <!-- NOME -->
@@ -281,16 +281,16 @@
             <!-- NÍVEL -->
             <div class="campo">
                 <label>Código exclusivo de Professor</label>
-                <input type="number" name="code" id="code" required>
+                <input type="text" name="code" id="code" required>
             </div>
 
             <!-- BOTÃO CADASTRAR -->
-            <button type="submit" class="btn-cadastrar">↗ Criar Conta</button>
+            <a href="{{ route('professor') }}"><button type="submit" class="btn-cadastrar">↗ Criar Conta</button></a>
             
         </form>
 
         <!-- LINK PARA VOLTAR / ENTRAR -->
-        <a href="{{ asset('loginprofessor') }}" style="text-decoration: none;">
+        <a href="{{ route('loginprofessor') }}" style="text-decoration: none;">
             <button type="button" class="btn-voltar">Já possui conta? Entrar</button>
         </a>
         

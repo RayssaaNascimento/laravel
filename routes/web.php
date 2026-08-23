@@ -30,13 +30,13 @@ Route::get('/loginaluno', [LoginAlunoController::class, 'loginaluno'])->name('lo
 Route::get('/cadastroaluno', [LoginAlunoController::class, 'cadastroaluno'])->name('cadastroaluno');
 
 // Autenticação e Fluxo de Cadastro do Aluno
-Route::post('/login-aluno', [LoginAlunoController::class, 'logar'])->name('loginaluno.autenticar'); // Mudado de /login para /login-aluno
-Route::post('/logout-aluno', [LoginAlunoController::class, 'logout'])->name('loginaluno.logout');
-Route::post('/adicionar', [LoginAlunoController::class, 'adicionar'])->name('loginaluno.adicionar'); // CORRIGIDO: Adicionado o ponto!
+Route::post('/login-aluno/logar', [LoginAlunoController::class, 'logar'])->name('loginaluno.logar'); // Mudado de /login para /login-aluno
+Route::post('/login-aluno/logout', [LoginAlunoController::class, 'logout'])->name('loginaluno.logout');
+Route::post('/login-aluno/adicionar', [LoginAlunoController::class, 'adicionar'])->name('loginaluno.adicionar'); // CORRIGIDO: Adicionado o ponto!
 
 // Verificação de Código do Aluno
-Route::get('/verificar-codigo', [LoginAlunoController::class, 'telaCodigo'])->name('loginaluno.verificar_codigo');
-Route::post('/confirmar-codigo', [LoginAlunoController::class, 'confirmarCodigo'])->name('loginaluno.confirmar_codigo');
+Route::get('/login-aluno/verificar-codigo', [LoginAlunoController::class, 'telaCodigo'])->name('loginaluno.verificar_codigo');
+Route::post('/login-aluno/confirmar-codigo', [LoginAlunoController::class, 'confirmarCodigo'])->name('loginaluno.confirmar_codigo');
 Route::post('/login-aluno/reenviar-codigo', [LoginAlunoController::class, 'reenviarCodigo'])->name('loginaluno.reenviar_codigo');
 
 // CRUD Aluno
@@ -49,18 +49,18 @@ Route::get('/consultar', [LoginAlunoController::class, 'consultar'])->name('logi
 // ROTAS DO PROFESSOR
 // ==========================================
 Route::get('/professor', [Professor::class, 'professor'])->name('professor');
-Route::get('/loginprofessor', [LoginProfessorController::class, 'loginP'])->name('loginprofessor');
-Route::get('/cadastroprofessor', [LoginProfessorController::class, 'cadastroP'])->name('cadastroprofessor');
+Route::get('/loginprofessor', [LoginProfessorController::class, 'loginprofessor'])->name('loginprofessor');
+Route::get('/cadastroprofessor', [LoginProfessorController::class, 'cadastroprofessor'])->name('cadastroprofessor');
 
 // Autenticação e Fluxo de Cadastro do Professor
-Route::post('/login-professor', [LoginProfessorController::class, 'logar'])->name('loginprofessor.autenticar'); // Mudado de /login para /login-professor
-Route::post('/logout-professor', [LoginProfessorController::class, 'logout'])->name('loginprofessor.logout');
-Route::post('/professor/adicionar', [LoginProfessorController::class, 'adicionar'])->name('loginprofessor.adicionar');
+Route::post('/logar', [LoginProfessorController::class, 'logar'])->name('logar'); // Mudado de /login para /login-professor
+Route::post('/logout', [LoginProfessorController::class, 'logout'])->name('loginprofessor.logout');
+Route::post('/professor/adicionar', [LoginProfessorController::class, 'adicionar'])->name('adicionar');
 
-// Verificação de Código do Professor
-Route::get('/professor/verificar-codigo', [LoginProfessorController::class, 'telaCodigo'])->name('loginprofessor.verificar_codigo'); // Adicionado prefixo para não chocar com o do aluno
-Route::post('/professor/confirmar-codigo', [LoginProfessorController::class, 'confirmarCodigo'])->name('loginprofessor.confirmar_codigo'); // Adicionado prefixo para não chocar com o do aluno
-Route::post('/login-professor/reenviar-codigo', [LoginProfessorController::class, 'reenviarCodigo'])->name('loginprofessor.reenviar_codigo');
+// Verificação de Código do Aluno
+Route::get('/verificar-codigo', [LoginProfessorController::class, 'telaCodigo'])->name('verificar_codigo');
+Route::post('/confirmar-codigo', [LoginProfessorController::class, 'confirmarCodigo'])->name('confirmar_codigo');
+Route::post('/reenviar-codigo', [LoginProfessorController::class, 'reenviarCodigo'])->name('reenviar_codigo');
 
 // CRUD Professor
 Route::post('/professor/remover', [LoginProfessorController::class, 'remover'])->name('loginprofessor.remover');

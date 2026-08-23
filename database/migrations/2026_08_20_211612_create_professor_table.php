@@ -14,7 +14,7 @@ return new class extends Migration
             $table->string('nome');
             $table->string('email')->unique(); // Evita e-mails duplicados
             $table->string('senha');
-            $table->number('code'); // 
+            $table->string('code'); // 
             $table->rememberToken(); // ADICIONADO: Necessário para salvar o login
         });
     }

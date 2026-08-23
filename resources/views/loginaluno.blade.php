@@ -298,6 +298,23 @@ BOTÃO LOGIN
 
 }
 
+        /* =========================
+           MENSAGENS DE ERRO
+        ========================= */
+        #mensagem{
+            text-align:center;
+            margin-bottom:15px;
+            font-size:14px;
+            font-weight:600;
+            padding: 10px;
+            border-radius: 10px;
+            background: rgba(217, 48, 37, 0.1);
+        }
+
+        .erro{
+            color:#d93025;
+        }
+
 /*==========================
 CAIXA DEMO
 ==========================*/
@@ -372,35 +389,50 @@ h1{
             Área exclusiva para clubistas e professores
         </div>
 
+                <!-- MENSAGENS DE ERRO DO LARAVEL -->
+        @if ($errors->any())
+            <div id="mensagem" class="erro">
+                @foreach ($errors->all() as $error)
+                    <p>⚠️ {{ $error }}</p>
+                @endforeach
+            </div>
+        @endif
 
-        <!-- FORMULÁRIO -->
-        <form action="{{ asset('loginaluno.adicionar') }}" method="POST">
+
+                <!-- FORMULÁRIO CORRIGIDO -->
+        <form action="{{ route('loginaluno.logar') }}" method="POST">
             @csrf 
 
-        <label for="email">Email</label>
+            <!-- EMAIL (Adicionado o name="email" e mantido o histórico com old()) -->
+            <label for="email">Email</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                value="{{ old('email') }}"
+                placeholder="seu.email@exemplo.com"
+                required
+            >
 
-        <input
-            type="email"
-            id="email"
-            placeholder="seu.email@exemplo.com"
-        >
+            <!-- SENHA (Adicionado o name="senha") -->
+            <label for="senha">Senha</label>
+            <input
+                type="password"
+                id="senha"
+                name="senha"
+                placeholder="******"
+                required
+            >
 
-        <label for="senha">Senha</label>
-
-        <input
-            type="password"
-            id="senha"
-            placeholder="******"
-        >
-
-        <button
-            type="button"
-            class="login-btn"
-            id="entrarBtn">
-
-            ↗ Entrar
-
-        </button>
+            <!-- BOTÃO (Alterado para type="submit" e removido a tag <a> de fora) -->
+            <button
+                type="submit"
+                class="login-btn"
+                id="entrarBtn"
+            >
+                ↗ Entrar
+            </button>
+        </form>
 
 
     </div>
