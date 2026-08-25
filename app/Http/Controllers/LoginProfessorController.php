@@ -27,11 +27,22 @@ class LoginProfessorController extends Controller
             'nome'            => 'required|string|max:255',
             'email'           => 'required|email|unique:professores,email',
             'senha'           => 'required|min:6',
-            'code'            => 'required|string'
+            'code'            => 'required|string|max:4'
         ], [
             'email.unique'    => 'Este e-mail já está cadastrado.',
-            'senha.min'       => 'A senha deve ter pelo menos 6 caracteres.'
+            'senha.min'       => 'A senha deve ter pelo menos 6 caracteres.',
+            'code.required'   => 'O código de acesso é obrigatório.'
         ]);
+        
+        // Define o código mestre exigido para o professor cadastrar
+        $codigoAcessoProfessor = '1618156';
+
+        // Verifica se o código informado é igual ao código mestre
+        if ($request->code !== $codigoAcessoProfessor) {
+            return redirect()->back()
+                ->withErrors(['code' => 'O código de acesso fornecido é inválido para professores.'])
+                ->withInput();
+        }
 
         // Gera um código aleatório de 6 dígitos
         $codigo = rand(100000, 999999);
@@ -86,7 +97,7 @@ class LoginProfessorController extends Controller
                 'nome'            => $dadosProfessor['nome'],
                 'email'           => $dadosProfessor['email'],
                 'senha'           => $dadosProfessor['senha'], // Já está com o Hash
-                'code' => $dadosProfessor['code'],
+                'code'            => $dadosProfessor['code'],
             ]);
             
             // Limpa as sessões temporárias

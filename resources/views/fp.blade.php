@@ -9,7 +9,6 @@
   <link href="https://googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-      @import url('https://googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 *{
     margin:0;
@@ -18,23 +17,95 @@
     font-family:'Poppins',sans-serif;
 }
 
+body{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+background:
+        linear-gradient(
+        180deg,
+    #7000a8 0%,
+    #b400d4 55%,
+    #ef6c73 100%
+    );
+
+}
+
+.container{
+
+    width:90%;
+    max-width:550px;
+
+    background:
+        linear-gradient(
+        180deg,
+    #f8d7ff,
+    #ffe2d2
+    );
+
+    padding:45px;
+
+    border-radius:30px;
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.30);
+
+    text-align:center;
+
+}
+
 .logo{
-            text-align:center;
-            margin-bottom:25px;
-        }
 
-        .logo img{
-            width:85px;
-            height:85px;
-            object-fit:cover;
-            border-radius:50%;
-            background:white;
-            padding:4px;
-            border:4px solid white;
-            box-shadow:
-                0 6px 15px rgba(0,0,0,.2);
-        }
+    width:90px;
+    height:90px;
 
+    margin:0 auto 20px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    border:4px solid white;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.20);
+
+}
+
+.logo img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+h1{
+
+    color:#222;
+
+    font-size:34px;
+
+    font-weight:800;
+
+    margin-bottom:10px;
+
+}
+
+p{
+
+    color:#666;
+
+    font-size:17px;
+
+    margin-bottom:35px;
+
+}
 body{
     display:flex;
     justify-content:center;
@@ -45,9 +116,6 @@ body{
     position:relative;
 }
 
-/*==========================
-BOLINHAS DO FUNDO
-==========================*/
 body::before,
 body::after{
     content:"";
@@ -77,9 +145,6 @@ body::after{
     right:12%;
 }
 
-/*==========================
-CARD CENTRAL
-==========================*/
 .join-box{
     width:430px;
     background:linear-gradient(180deg,#f8d7ff,#ffe2d2);
@@ -88,9 +153,6 @@ CARD CENTRAL
     box-shadow:0 15px 35px rgba(0,0,0,.25);
     text-align: center;
 }
-/*==========================
-TEXTOS
-==========================*/
 h1{
     font-size:36px;
     color:#1e1e1e;
@@ -98,26 +160,7 @@ h1{
     margin-bottom: 5px;
 }
 
-.subtitle{
-    color:#555;
-    font-size:16px;
-    margin-bottom: 35px;
-    line-height: 1.4;
-}
-
-label {
-    display: block;
-    color: #333;
-    font-weight: 700;
-    margin-bottom: 12px;
-    font-size: 18px;
-    text-align: left;
-}
-
-/*==========================
-BOTÕES DE INSCRIÇÃO
-==========================*/
-.join-btn {
+.botao {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -134,42 +177,30 @@ BOTÕES DE INSCRIÇÃO
     margin-bottom: 20px;
 }
 
-/* Botão Aluno (Roxo) */
-.student-btn {
+.aluno {
     background: #8b2cf5;
     box-shadow: 0 8px 18px rgba(139, 44, 245, 0.35);
 }
 
-.student-btn:hover {
+.aluno:hover {
     background: #a14fff;
     transform: translateY(-3px);
 }
 
-/* Botão Professor (Laranja) */
-.teacher-btn {
+.professor {
     background: #ff7a00;
     box-shadow: 0 8px 18px rgba(255,122,0,.35);
     margin-bottom: 10px; /* Menor margem no último item */
 }
 
-.teacher-btn:hover {
+.professor:hover {
     background: #ff9500;
     transform: translateY(-3px);
 }
 
-/*==========================
-RESPONSIVO
-==========================*/
 @media(max-width:768px){
-    .join-box{
-        width:92%;
-        padding:25px;
-    }
     h1{
         font-size:30px;
-    }
-    .subtitle{
-        font-size:15px;
     }
     .join-btn {
         font-size: 18px;
@@ -181,24 +212,31 @@ RESPONSIVO
 </head>
 <body>
 
-    <div class="join-box">
+<div class="container">
 
-        <!-- Grupo de Avatares mostrando os dois perfis lado a lado -->
-        <div class="logo">
-            <img src="{{ asset('Beth.jpg') }}" alt="Beth Cientista">
-            <h1>BETH CIENTISTA</h1>
-            <p>Escolha como deseja entrar:</p>
-        </div>
+    <div class="logo">
 
-        <!-- Botão para Aluno -->
-        <a href="{{ route('cadastroaluno') }}" class="join-btn student-btn">
-            Cadastrar como aluno ↗
-        </a>
+        <img
+            src="{{ asset('Beth.jpg') }}"
+            alt="Beth Cientista"
+        >
 
-        <!-- Botão para Professor -->
-        <a href="{{ route('cadastroprofessor') }}" class="join-btn teacher-btn">
-            Cadastrar como professor ↗
-        </a>
+    </div>
+
+    <h1>CRIAR CONTA</h1>
+
+    <p>
+        Escolha o tipo de conta que deseja criar
+    </p>
+
+            <a href="{{ route('cadastroprofessor') }}" class="botao aluno">
+                Professor ↗
+            </a>
+    
+            <a href="{{ route('cadastroaluno') }}" class="botao professor" >
+                Aluno ↗
+            </a>
+
 
     </div>
 
