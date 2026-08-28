@@ -55,12 +55,12 @@ Route::get('/cadastroprofessor', [LoginProfessorController::class, 'cadastroprof
 // Autenticação e Fluxo de Cadastro do Professor
 Route::post('/logar', [LoginProfessorController::class, 'logar'])->name('logar'); // Mudado de /login para /login-professor
 Route::post('/logout', [LoginProfessorController::class, 'logout'])->name('loginprofessor.logout');
-Route::post('/professor/adicionar', [LoginProfessorController::class, 'adicionar'])->name('adicionar');
+Route::post('/professor-adicionar', [LoginProfessorController::class, 'adicionar'])->name('loginprofessor.adicionar');
 
 // Verificação de Código do Aluno
-Route::get('/verificar-codigo', [LoginProfessorController::class, 'telaCodigo'])->name('verificar_codigo');
-Route::post('/confirmar-codigo', [LoginProfessorController::class, 'confirmarCodigo'])->name('confirmar_codigo');
-Route::post('/reenviar-codigo', [LoginProfessorController::class, 'reenviarCodigo'])->name('reenviar_codigo');
+Route::get('login-professor/verificar-codigo', [LoginProfessorController::class, 'telaCodigo'])->name('loginprofessor.verificar_codigo');
+Route::post('login-professor/confirmar-codigo', [LoginProfessorController::class, 'confirmarCodigo'])->name('loginprofessor.confirmar_codigo');
+Route::post('login-professor/reenviar-codigo', [LoginProfessorController::class, 'reenviarCodigo'])->name('loginprofessor.reenviar_codigo');
 
 // CRUD Professor
 Route::post('/professor/remover', [LoginProfessorController::class, 'remover'])->name('loginprofessor.remover');
