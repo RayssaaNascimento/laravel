@@ -8,237 +8,154 @@
   <link rel="preconnect" href="https://googleapis.com">
   <link href="https://googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, #7000a8 0%, #b400d4 55%, #ef6c73 100%);
+            padding: 20px;
+        }
 
-body{
+        .container {
+            width: 100%;
+            max-width: 550px;
+            background: linear-gradient(180deg, #f8d7ff, #ffe2d2);
+            padding: 45px;
+            border-radius: 30px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, .30);
+            text-align: center;
+        }
 
-    min-height:100vh;
+        .logo {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .20);
+        }
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-background:
-        linear-gradient(
-        180deg,
-    #7000a8 0%,
-    #b400d4 55%,
-    #ef6c73 100%
-    );
+        h1 {
+            color: #222;
+            font-size: 34px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
 
-}
+        p {
+            color: #666;
+            font-size: 17px;
+            margin-bottom: 35px;
+        }
 
-.container{
+        .botoes {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+        }
 
-    width:90%;
-    max-width:550px;
+        /* Esta classe corrige o problema do tamanho dos links no Laravel */
+        .link-botao {
+            flex: 1;
+            text-decoration: none;
+            display: block;
+        }
 
-    background:
-        linear-gradient(
-        180deg,
-    #f8d7ff,
-    #ffe2d2
-    );
+        .botao {
+            width: 100%;
+            border: none;
+            padding: 16px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .3s;
+            display: block;
+            text-align: center;
+        }
 
-    padding:45px;
+        .professor {
+            background: #8b2cf5;
+            color: white;
+            box-shadow: 0 7px 18px rgba(139, 44, 245, .30);
+        }
 
-    border-radius:30px;
+        .aluno {
+            background: #ff7a00;
+            color: white;
+            box-shadow: 0 7px 18px rgba(255, 122, 0, .30);
+        }
 
-    box-shadow:
-        0 20px 45px rgba(0,0,0,.30);
+        /* Efeito de hover aplicado através do link pai */
+        .link-botao:hover .botao {
+            transform: translateY(-4px);
+            filter: brightness(1.08);
+        }
 
-    text-align:center;
+        @media(max-width: 600px) {
+            .container {
+                padding: 30px 22px;
+            }
 
-}
+            .botoes {
+                flex-direction: column;
+                gap: 15px;
+            }
 
-.logo{
+            .link-botao {
+                width: 100%;
+            }
 
-    width:90px;
-    height:90px;
-
-    margin:0 auto 20px;
-
-    border-radius:50%;
-
-    overflow:hidden;
-
-    border:4px solid white;
-
-    box-shadow:
-        0 8px 20px rgba(0,0,0,.20);
-
-}
-
-.logo img{
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-}
-
-h1{
-
-    color:#222;
-
-    font-size:34px;
-
-    font-weight:800;
-
-    margin-bottom:10px;
-
-}
-
-p{
-
-    color:#666;
-
-    font-size:17px;
-
-    margin-bottom:35px;
-
-}
-body{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    background:linear-gradient(180deg,#6f00a8 0%,#b316d1 55%,#ef6b72 100%);
-    overflow:hidden;
-    position:relative;
-}
-
-body::before,
-body::after{
-    content:"";
-    position:absolute;
-    width:10px;
-    height:10px;
-    background:white;
-    border-radius:50%;
-    opacity:.7;
-}
-
-body::before{
-    top:12%;
-    left:15%;
-    box-shadow:
-    200px 80px white,
-    500px 150px white,
-    800px 50px white,
-    950px 320px white,
-    120px 500px white,
-    650px 620px white,
-    980px 700px white;
-}
-
-body::after{
-    bottom:8%;
-    right:12%;
-}
-
-.join-box{
-    width:430px;
-    background:linear-gradient(180deg,#f8d7ff,#ffe2d2);
-    padding:35px;
-    border-radius:30px;
-    box-shadow:0 15px 35px rgba(0,0,0,.25);
-    text-align: center;
-}
-h1{
-    font-size:36px;
-    color:#1e1e1e;
-    font-weight:800;
-    margin-bottom: 5px;
-}
-
-.botao {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    border: none;
-    color: white;
-    padding: 15px;
-    border-radius: 30px;
-    font-size: 20px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: .3s;
-    text-decoration: none;
-    margin-bottom: 20px;
-}
-
-.aluno {
-    background: #8b2cf5;
-    box-shadow: 0 8px 18px rgba(139, 44, 245, 0.35);
-}
-
-.aluno:hover {
-    background: #a14fff;
-    transform: translateY(-3px);
-}
-
-.professor {
-    background: #ff7a00;
-    box-shadow: 0 8px 18px rgba(255,122,0,.35);
-    margin-bottom: 10px; /* Menor margem no último item */
-}
-
-.professor:hover {
-    background: #ff9500;
-    transform: translateY(-3px);
-}
-
-@media(max-width:768px){
-    h1{
-        font-size:30px;
-    }
-    .join-btn {
-        font-size: 18px;
-        padding: 13px;
-    }
-}
-</style>        
-
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <div class="logo">
+        <div class="logo">
+            <img src="{{ asset('Beth.jpg') }}" alt="Beth Cientista">
+        </div>
 
-        <img
-            src="{{ asset('Beth.jpg') }}"
-            alt="Beth Cientista"
-        >
+        <h1>CRIAR CONTA</h1>
 
-    </div>
-
-    <h1>CRIAR CONTA</h1>
-
-    <p>
+        <p>
         Escolha o tipo de conta que deseja criar
-    </p>
+        </p>
 
-            <a href="{{ route('cadastroprofessor') }}" class="botao aluno">
-                Professor ↗
+        <div class="botoes">
+            <!-- Os links controlam a largura e os botões internos preenchem 100% do espaço -->
+            <a href="{{ route('cadastroaluno') }}" class="link-botao">
+                <button type="button" class="botao aluno">Aluno</button>
             </a>
-    
-            <a href="{{ route('cadastroaluno') }}" class="botao professor" >
-                Aluno ↗
+            
+            <a href="{{ route('cadastroprofessor') }}" class="link-botao">
+                <button type="button" class="botao professor">Professor</button>
             </a>
-
+        </div>
 
     </div>
 
 </body>
+
 </html>

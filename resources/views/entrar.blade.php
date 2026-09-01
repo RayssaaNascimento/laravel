@@ -1,206 +1,162 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Faça Parte - Beth Cientista</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="preconnect" href="https://googleapis.com">
-  <link href="https://googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <title>Escolha seu Cadastro | Beth Cientista</title>
 
-  <style>
-      @import url('https://googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
-.logo{
-            text-align:center;
-            margin-bottom:25px;
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
 
-        .logo img{
-            width:85px;
-            height:85px;
-            object-fit:cover;
-            border-radius:50%;
-            background:white;
-            padding:4px;
-            border:4px solid white;
-            box-shadow:
-                0 6px 15px rgba(0,0,0,.2);
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, #7000a8 0%, #b400d4 55%, #ef6c73 100%);
+            padding: 20px;
         }
 
-body{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    background:linear-gradient(180deg,#6f00a8 0%,#b316d1 55%,#ef6b72 100%);
-    overflow:hidden;
-    position:relative;
-}
+        .container {
+            width: 100%;
+            max-width: 550px;
+            background: linear-gradient(180deg, #f8d7ff, #ffe2d2);
+            padding: 45px;
+            border-radius: 30px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, .30);
+            text-align: center;
+        }
 
-/*==========================
-BOLINHAS DO FUNDO
-==========================*/
-body::before,
-body::after{
-    content:"";
-    position:absolute;
-    width:10px;
-    height:10px;
-    background:white;
-    border-radius:50%;
-    opacity:.7;
-}
+        .logo {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .20);
+        }
 
-body::before{
-    top:12%;
-    left:15%;
-    box-shadow:
-    200px 80px white,
-    500px 150px white,
-    800px 50px white,
-    950px 320px white,
-    120px 500px white,
-    650px 620px white,
-    980px 700px white;
-}
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-body::after{
-    bottom:8%;
-    right:12%;
-}
+        h1 {
+            color: #222;
+            font-size: 34px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
 
-/*==========================
-CARD CENTRAL
-==========================*/
-.join-box{
-    width:430px;
-    background:linear-gradient(180deg,#f8d7ff,#ffe2d2);
-    padding:35px;
-    border-radius:30px;
-    box-shadow:0 15px 35px rgba(0,0,0,.25);
-    text-align: center;
-}
-/*==========================
-TEXTOS
-==========================*/
-h1{
-    font-size:36px;
-    color:#1e1e1e;
-    font-weight:800;
-    margin-bottom: 5px;
-}
+        p {
+            color: #666;
+            font-size: 17px;
+            margin-bottom: 35px;
+        }
 
-.subtitle{
-    color:#555;
-    font-size:16px;
-    margin-bottom: 35px;
-    line-height: 1.4;
-}
+        .botoes {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+        }
 
-label {
-    display: block;
-    color: #333;
-    font-weight: 700;
-    margin-bottom: 12px;
-    font-size: 18px;
-    text-align: left;
-}
+        /* Esta classe corrige o problema do tamanho dos links no Laravel */
+        .link-botao {
+            flex: 1;
+            text-decoration: none;
+            display: block;
+        }
 
-/*==========================
-BOTÕES DE INSCRIÇÃO
-==========================*/
-.join-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    border: none;
-    color: white;
-    padding: 15px;
-    border-radius: 30px;
-    font-size: 20px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: .3s;
-    text-decoration: none;
-    margin-bottom: 20px;
-}
+        .botao {
+            width: 100%;
+            border: none;
+            padding: 16px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .3s;
+            display: block;
+            text-align: center;
+        }
 
-/* Botão Aluno (Roxo) */
-.student-btn {
-    background: #8b2cf5;
-    box-shadow: 0 8px 18px rgba(139, 44, 245, 0.35);
-}
+        .professor {
+            background: #8b2cf5;
+            color: white;
+            box-shadow: 0 7px 18px rgba(139, 44, 245, .30);
+        }
 
-.student-btn:hover {
-    background: #a14fff;
-    transform: translateY(-3px);
-}
+        .aluno {
+            background: #ff7a00;
+            color: white;
+            box-shadow: 0 7px 18px rgba(255, 122, 0, .30);
+        }
 
-/* Botão Professor (Laranja) */
-.teacher-btn {
-    background: #ff7a00;
-    box-shadow: 0 8px 18px rgba(255,122,0,.35);
-    margin-bottom: 10px; /* Menor margem no último item */
-}
+        /* Efeito de hover aplicado através do link pai */
+        .link-botao:hover .botao {
+            transform: translateY(-4px);
+            filter: brightness(1.08);
+        }
 
-.teacher-btn:hover {
-    background: #ff9500;
-    transform: translateY(-3px);
-}
+        @media(max-width: 600px) {
+            .container {
+                padding: 30px 22px;
+            }
 
-/*==========================
-RESPONSIVO
-==========================*/
-@media(max-width:768px){
-    .join-box{
-        width:92%;
-        padding:25px;
-    }
-    h1{
-        font-size:30px;
-    }
-    .subtitle{
-        font-size:15px;
-    }
-    .join-btn {
-        font-size: 18px;
-        padding: 13px;
-    }
-}
-</style>        
+            .botoes {
+                flex-direction: column;
+                gap: 15px;
+            }
 
+            .link-botao {
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <div class="join-box">
+    <div class="container">
 
-        <!-- Grupo de Avatares mostrando os dois perfis lado a lado -->
         <div class="logo">
             <img src="{{ asset('Beth.jpg') }}" alt="Beth Cientista">
-            <h1>BETH CIENTISTA</h1>
-            <p>Escolha como deseja entrar:</p>
         </div>
 
-        <!-- Botão para Aluno -->
-        <a href="{{ route('loginaluno') }}" class="join-btn student-btn">
-            Cadastrar como aluno ↗
-        </a>
+        <h1>ENTRE NA SUA CONTA</h1>
 
-        <!-- Botão para Professor -->
-        <a href="{{ route('loginprofessor') }}" class="join-btn teacher-btn">
-            Cadastrar como professor ↗
-        </a>
+        <p>Escolha o tipo de conta que deseja acessar</p>
+
+        <div class="botoes">
+            <!-- Os links controlam a largura e os botões internos preenchem 100% do espaço -->
+            <a href="{{ route('loginaluno') }}" class="link-botao">
+                <button type="button" class="botao aluno">Aluno</button>
+            </a>
+            
+            <a href="{{ route('loginprofessor') }}" class="link-botao">
+                <button type="button" class="botao professor">Professor</button>
+            </a>
+        </div>
 
     </div>
 
 </body>
+
 </html>

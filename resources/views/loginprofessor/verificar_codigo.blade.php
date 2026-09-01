@@ -172,14 +172,14 @@
             </div>
         @endif
 
-        <form action="{{ route('confirmar_codigo') }}" method="POST">
+        <form action="{{ route('loginprofessor.confirmar_codigo') }}" method="POST">
             @csrf
             <input type="text" id="codigo" name="codigo_digitado" placeholder="000000" maxlength="6" required autocomplete="off">
             <button type="submit" class="login-btn">Validar e Cadastrar</button>
         </form>
 
         <div class="resend-container">
-            <form action="{{ route('reenviar_codigo') }}" method="POST" id="formReenviar">
+            <form action="{{ route('loginprofessor.reenviar_codigo') }}" method="POST" id="formReenviar">
                 @csrf
                 <button type="submit" id="btnReenviar" class="resend-btn" disabled>
                     Reenviar código (<span id="contador">60</span>s)

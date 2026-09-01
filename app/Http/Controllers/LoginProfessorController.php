@@ -27,7 +27,7 @@ class LoginProfessorController extends Controller
             'nome'            => 'required|string|max:255',
             'email'           => 'required|email|unique:professores,email',
             'senha'           => 'required|min:6',
-            'code'            => 'required|string|max:4'
+            'code'            => 'required|string|min:7|max:7'
         ], [
             'email.unique'    => 'Este e-mail já está cadastrado.',
             'senha.min'       => 'A senha deve ter pelo menos 6 caracteres.',
@@ -62,7 +62,7 @@ class LoginProfessorController extends Controller
         Mail::to($request->email)->send(new CodigoVerificacaoMail($codigo));
 
         // Redireciona para a página onde ele deve digitar o código
-        return redirect()->route('verificar_codigo');
+        return redirect()->route('loginprofessor.verificar_codigo');
     }
 
     // 2. Exibe a tela para digitação do código
@@ -70,7 +70,7 @@ class LoginProfessorController extends Controller
         if (!session()->has('cadastro_temporario')) {
             return redirect()->route('loginprofessor');
         }
-        return view('verificar_codigo');
+        return view('loginprofessor.verificar_codigo');
     }
 
     // 3. Valida o código e CRIA a conta definitiva salvando no banco

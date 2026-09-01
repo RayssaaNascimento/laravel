@@ -450,8 +450,8 @@ h1{
 
             <!-- LINK PARA VOLTAR / ENTRAR -->
            <div class="botoes">
-               <a href="{{ route('fp') }}" class="btn btn-voltar">Voltar</a>
-               <a href="{{ route('professor') }}" class="btn btn-cadastrar">Cadastrar Professor</a>
+               <a href="{{ route('fp') }}"><button type="button" class="btn btn-voltar">Voltar</button></a>
+               <a href="{{ route('professor') }}"><button type="submit" class="btn btn-cadastrar">Cadastrar Professor</button></a>
            </div>
             
         </form>

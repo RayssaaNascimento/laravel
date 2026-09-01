@@ -55,7 +55,7 @@ Route::get('/cadastroprofessor', [LoginProfessorController::class, 'cadastroprof
 // Autenticação e Fluxo de Cadastro do Professor
 Route::post('/logar', [LoginProfessorController::class, 'logar'])->name('logar'); // Mudado de /login para /login-professor
 Route::post('/logout', [LoginProfessorController::class, 'logout'])->name('loginprofessor.logout');
-Route::post('/professor-adicionar', [LoginProfessorController::class, 'adicionar'])->name('loginprofessor.adicionar');
+Route::post('/login-professor/adicionar', [LoginProfessorController::class, 'adicionar'])->name('loginprofessor.adicionar');
 
 // Verificação de Código do Aluno
 Route::get('login-professor/verificar-codigo', [LoginProfessorController::class, 'telaCodigo'])->name('loginprofessor.verificar_codigo');
