@@ -12,9 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* =========================
-           CONFIGURAÇÕES GERAIS
-        ========================= */
+        
         * {
             margin: 0;
             padding: 0;
@@ -171,9 +169,6 @@
             text-decoration: none;
         }
 
-        /* =========================
-           BOTÕES INTERATIVOS
-        ========================= */
         .btn-cadastrar {
             background: #ff7a00;
             color: white;
@@ -197,9 +192,6 @@
             transform: translateY(-3px);
         }
 
-        /* =========================
-           MENSAGENS DE ERRO
-        ========================= */
         #mensagem {
             text-align: center;
             margin-bottom: 15px;
@@ -214,9 +206,6 @@
             color: #d93025;
         }
 
-        /* =========================
-           RESPONSIVO
-        ========================= */
         @media(max-width:600px) {
             body {
                 padding: 15px;
@@ -262,7 +251,6 @@
             <span>ALUNO CLUBISTA</span>
         </div>
 
-        <!-- MENSAGENS DE ERRO DO LARAVEL -->
         @if ($errors->any())
             <div id="mensagem" class="erro">
                 @foreach ($errors->all() as $error)
@@ -271,29 +259,24 @@
             </div>
         @endif
 
-        <!-- FORMULÁRIO -->
         <form action="{{ route('loginaluno.adicionar') }}" method="POST">
             @csrf
 
-            <!-- NOME -->
             <div class="campo">
                 <label>Nome Completo</label>
                 <input type="text" name="nome" value="{{ old('nome') }}" placeholder="Digite seu nome" required>
             </div>
 
-            <!-- EMAIL -->
             <div class="campo">
                 <label>Email</label>
                 <input type="email" name="email" value="{{ old('email') }}" placeholder="seu.email@exemplo.com" required>
             </div>
 
-            <!-- SENHA -->
             <div class="campo">
                 <label>Senha</label>
                 <input type="password" name="senha" placeholder="********" required>
             </div>
 
-            <!-- ÁREA CIENTÍFICA -->
             <div class="campo">
                 <label>Área Científica</label>
                 <select name="area_cientifica" required>
@@ -306,7 +289,6 @@
                 </select>
             </div>
 
-            <!-- BOTÕES -->
             <div class="botoes">
                 <a href="{{ route('fp') }}" class="btn btn-voltar">Voltar</a>
                 <button type="submit" class="btn btn-cadastrar">Cadastrar Aluno</button>

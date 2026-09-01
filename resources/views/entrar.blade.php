@@ -1,162 +1,175 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Escolha seu Cadastro | Beth Cientista</title>
+  <title>Escolha seu Cadastro | Beth Cientista</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-        body {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(180deg, #7000a8 0%, #b400d4 55%, #ef6c73 100%);
-            padding: 20px;
-        }
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(180deg, #7000a8 0%, #b400d4 55%, #ef6c73 100%);
+      padding: 20px;
+    }
 
-        .container {
-            width: 100%;
-            max-width: 550px;
-            background: linear-gradient(180deg, #f8d7ff, #ffe2d2);
-            padding: 45px;
-            border-radius: 30px;
-            box-shadow: 0 20px 45px rgba(0, 0, 0, .30);
-            text-align: center;
-        }
+    body::before {
+      content: "";
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      opacity: .7;
+      top: 12%;
+      left: 12%;
+      box-shadow:
+        180px 100px white,
+        500px 50px white,
+        750px 200px white,
+        900px 500px white,
+        100px 600px white,
+        650px 650px white;
+    }
 
-        .logo {
-            width: 90px;
-            height: 90px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 4px solid white;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, .20);
-        }
+    .container {
+      width: 100%;
+      max-width: 550px;
+      background: linear-gradient(180deg, #f8d7ff, #ffe2d2);
+      padding: 45px;
+      border-radius: 30px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, .30);
+      text-align: center;
+    }
 
-        .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    .logo {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid white;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, .20);
+    }
 
-        h1 {
-            color: #222;
-            font-size: 34px;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-        p {
-            color: #666;
-            font-size: 17px;
-            margin-bottom: 35px;
-        }
+    h1 {
+      color: #222;
+      font-size: 34px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
 
-        .botoes {
-            display: flex;
-            gap: 20px;
-            width: 100%;
-        }
+    p {
+      color: #666;
+      font-size: 17px;
+      margin-bottom: 35px;
+    }
 
-        /* Esta classe corrige o problema do tamanho dos links no Laravel */
-        .link-botao {
-            flex: 1;
-            text-decoration: none;
-            display: block;
-        }
+    .botoes {
+      display: flex;
+      gap: 20px;
+      width: 100%;
+    }
 
-        .botao {
-            width: 100%;
-            border: none;
-            padding: 16px;
-            border-radius: 30px;
-            font-size: 18px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: .3s;
-            display: block;
-            text-align: center;
-        }
+    .link-botao {
+      flex: 1;
+      text-decoration: none;
+      display: block;
+    }
 
-        .professor {
-            background: #8b2cf5;
-            color: white;
-            box-shadow: 0 7px 18px rgba(139, 44, 245, .30);
-        }
+    .botao {
+      width: 100%;
+      border: none;
+      padding: 16px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .3s;
+      display: block;
+      text-align: center;
+    }
 
-        .aluno {
-            background: #ff7a00;
-            color: white;
-            box-shadow: 0 7px 18px rgba(255, 122, 0, .30);
-        }
+    .professor {
+      background: #8b2cf5;
+      color: white;
+      box-shadow: 0 7px 18px rgba(139, 44, 245, .30);
+    }
 
-        /* Efeito de hover aplicado através do link pai */
-        .link-botao:hover .botao {
-            transform: translateY(-4px);
-            filter: brightness(1.08);
-        }
+    .aluno {
+      background: #ff7a00;
+      color: white;
+      box-shadow: 0 7px 18px rgba(255, 122, 0, .30);
+    }
 
-        @media(max-width: 600px) {
-            .container {
-                padding: 30px 22px;
-            }
+    .link-botao:hover .botao {
+      transform: translateY(-4px);
+      filter: brightness(1.08);
+    }
 
-            .botoes {
-                flex-direction: column;
-                gap: 15px;
-            }
+    @media (max-width: 600px) {
+      .container {
+        padding: 30px 22px;
+      }
 
-            .link-botao {
-                width: 100%;
-            }
+      .botoes {
+        flex-direction: column;
+        gap: 15px;
+      }
 
-            h1 {
-                font-size: 28px;
-            }
-        }
-    </style>
+      .link-botao {
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-    <div class="container">
+  <div class="container">
 
-        <div class="logo">
-            <img src="{{ asset('Beth.jpg') }}" alt="Beth Cientista">
-        </div>
-
-        <h1>ENTRE NA SUA CONTA</h1>
-
-        <p>Escolha o tipo de conta que deseja acessar</p>
-
-        <div class="botoes">
-            <!-- Os links controlam a largura e os botões internos preenchem 100% do espaço -->
-            <a href="{{ route('loginaluno') }}" class="link-botao">
-                <button type="button" class="botao aluno">Aluno</button>
-            </a>
-            
-            <a href="{{ route('loginprofessor') }}" class="link-botao">
-                <button type="button" class="botao professor">Professor</button>
-            </a>
-        </div>
-
+    <div class="logo">
+      <img src="{{ asset('Beth.jpg') }}" alt="Beth Cientista">
     </div>
 
-</body>
+    <h1>ENTRE NA SUA CONTA</h1>
 
+    <p>Escolha o tipo de conta que deseja acessar</p>
+
+    <div class="botoes">
+      <a href="{{ route('loginaluno') }}" class="link-botao">
+        <button type="button" class="botao aluno">Aluno</button>
+      </a>
+      
+      <a href="{{ route('loginprofessor') }}" class="link-botao">
+        <button type="button" class="botao professor">Professor</button>
+      </a>
+    </div>
+
+  </div>
+
+</body>
 </html>

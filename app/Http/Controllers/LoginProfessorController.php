@@ -35,7 +35,7 @@ class LoginProfessorController extends Controller
         ]);
         
         // Define o código mestre exigido para o professor cadastrar
-        $codigoAcessoProfessor = '1618156';
+        $codigoAcessoProfessor = env('CODIGO_ACESSO_PROFESSOR');
 
         // Verifica se o código informado é igual ao código mestre
         if ($request->code !== $codigoAcessoProfessor) {
@@ -53,7 +53,7 @@ class LoginProfessorController extends Controller
                 'nome'            => $request->nome,
                 'email'           => $request->email,
                 'senha'           => Hash::make($request->senha),
-                'code' => $request->code,
+                'code'            => $request->code,
             ],
             'codigo_verificacao' => $codigo
         ]);
