@@ -26,8 +26,7 @@ class LoginAlunoController extends Controller
         $request->validate([
             'nome'            => 'required|string|max:255',
             'email'           => 'required|email|unique:alunos,email',
-            'senha'           => 'required|min:6',
-            'area_cientifica' => 'required|string'
+            'senha'           => 'required|min:6'
         ], [
             'email.unique'    => 'Este e-mail já está cadastrado.',
             'senha.min'       => 'A senha deve ter pelo menos 6 caracteres.'
@@ -42,7 +41,6 @@ class LoginAlunoController extends Controller
                 'nome'            => $request->nome,
                 'email'           => $request->email,
                 'senha'           => Hash::make($request->senha),
-                'area_cientifica' => $request->area_cientifica,
             ],
             'codigo_verificacao' => $codigo
         ]);
@@ -86,7 +84,6 @@ class LoginAlunoController extends Controller
                 'nome'            => $dadosAluno['nome'],
                 'email'           => $dadosAluno['email'],
                 'senha'           => $dadosAluno['senha'], // Já está com o Hash
-                'area_cientifica' => $dadosAluno['area_cientifica'],
             ]);
             
             // Limpa as sessões temporárias

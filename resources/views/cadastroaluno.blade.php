@@ -277,18 +277,6 @@
                 <input type="password" name="senha" placeholder="********" required>
             </div>
 
-            <div class="campo">
-                <label>Área Científica</label>
-                <select name="area_cientifica" required>
-                    <option value="" disabled {{ old('area_cientifica') == '' ? 'selected' : '' }}>Selecione uma área</option>
-                    <option value="Biologia" {{ old('area_cientifica') == 'Biologia' ? 'selected' : '' }}>Biologia</option>
-                    <option value="Química" {{ old('area_cientifica') == 'Química' ? 'selected' : '' }}>Química</option>
-                    <option value="Física" {{ old('area_cientifica') == 'Física' ? 'selected' : '' }}>Física</option>
-                    <option value="Astronomia" {{ old('area_cientifica') == 'Astronomia' ? 'selected' : '' }}>Astronomia</option>
-                    <option value="Anatomia" {{ old('area_cientifica') == 'Anatomia' ? 'selected' : '' }}>Anatomia</option>
-                </select>
-            </div>
-
             <div class="botoes">
                 <a href="{{ route('fp') }}" class="btn btn-voltar">Voltar</a>
                 <button type="submit" class="btn btn-cadastrar">Cadastrar Aluno</button>

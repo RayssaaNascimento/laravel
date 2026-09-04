@@ -12,10 +12,9 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('nome');
-            $table->string('email')->unique(); // Evita e-mails duplicados
+            $table->string('email')->unique();
             $table->string('senha');
-            $table->string('area_cientifica'); // ADICIONADO: Campo da área científica
-            $table->rememberToken(); // ADICIONADO: Necessário para salvar o login
+            $table->rememberToken();
         });
     }
 

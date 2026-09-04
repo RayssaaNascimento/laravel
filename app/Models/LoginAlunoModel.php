@@ -12,7 +12,7 @@ class LoginAlunoModel extends Authenticatable
     protected $table = 'alunos';
     
     // ADICIONADO: 'area_cientifica' liberado para preenchimento
-    protected $fillable = ['nome', 'email', 'senha', 'area_cientifica']; 
+    protected $fillable = ['nome', 'email', 'senha']; 
 
     public function getAuthPassword()
     {
