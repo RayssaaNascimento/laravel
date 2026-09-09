@@ -15,6 +15,10 @@ use App\Http\Middleware\LogAcessoMiddleware;
 
 Route::get('/', [App\Http\Controllers\Principal::class, 'principal']);
 
+Route::get('/produtos', [App\Http\Controllers\ProdutoController::class, 'index'])->name('produtos');
+
+Route::get('/deletar/{id}', [App\Http\Controllers\ProdutoController::class, 'destroy'])->name('deletar');
+
 
 
 
